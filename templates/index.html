@@ -31,12 +31,32 @@
         <p>El DataFrame tiene {{ shape_info.0 }} filas y {{ shape_info.1 }} columnas.</p>
     {% endif %}
 
+    {% if info %}
+        <h2>Información Adicional:</h2>
+        <pre>{{ info }}</pre>
+    {% endif %}
+
     {% if describe_info %}
         <h2>Descripción del DataFrame:</h2>
         <!-- Aquí usaremos una tabla para mostrar el resultado del describe -->
         <table border="1">
             {{ describe_info|safe }}
         </table>
+    {% endif %}
+
+    {% if null_counts %}
+        <h2>Valores Nulos en cada columna:</h2>
+        <pre>{{ null_counts }}</pre>
+    {% endif %}
+
+    {% if missing_counts %}
+        <h2>Valores Faltantes en cada columna:</h2>
+        <pre>{{ missing_counts }}</pre>
+    {% endif %}
+
+    {% if graph %}
+        <h2>Gráfico de barras interactivo:</h2>
+        {{ graph|safe }}
     {% endif %}
 </body>
 </html>

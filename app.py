@@ -2,6 +2,7 @@ import os
 import logging
 from flask import Flask, request, render_template, redirect, url_for
 import pandas as pd
+import plotly.graph_objects as go
 
 app = Flask(__name__)
 
@@ -34,13 +35,22 @@ def process_file(filename):
         else:
             return "Formato de archivo no compatible. Debe ser un archivo CSV o Excel."
 
+        # Obtener estadísticas adicionales
+        null_counts = df.isnull().sum().to_list()
+        missing_counts = df.isna().sum().to_list()
+        info = df.info().replace('\n', '<br>') if df.info() else None
+
         # Realizar el "shape" y "describe" del DataFrame
         shape_info = df.shape
         logging.info("Shape del DataFrame: %s", shape_info)
         describe_info = df.describe().to_html()
         logging.info("Describe del DataFrame:\n%s", describe_info)
 
-        return render_template('index.html', filename=filename, shape_info=shape_info, describe_info=describe_info)
+        # Crear gráfico utilizando Plotly
+        fig = go.Figure(data=[go.Bar(x=df.columns, y=df.count())])
+        graph = fig.to_html(full_html=False)
+
+        return render_template('index.html', filename=filename, shape_info=shape_info, describe_info=describe_info, null_counts=null_counts, missing_counts=missing_counts, info=info, graph=graph)
 
     except Exception as e:
         logging.error("Error al procesar el archivo: %s", str(e))
