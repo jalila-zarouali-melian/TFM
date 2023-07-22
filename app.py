@@ -1,4 +1,5 @@
 import os
+import logging
 from flask import Flask, request, render_template, redirect, url_for
 import pandas as pd
 
@@ -10,8 +11,11 @@ def upload_file():
     if request.method == 'POST':
         file = request.files['file']
         if file:
+            logging.info("Nombre del archivo enviado: %s", file.filename)
             filename = file.filename
-            file.save(os.path.join('uploads', filename))
+            file_path = os.path.join('uploads', filename)
+            file.save(file_path)
+            logging.info("Archivo guardado en: %s", file_path)
             return redirect(url_for('process_file', filename=filename))
     return render_template('index.html')
 
@@ -20,6 +24,7 @@ def upload_file():
 def process_file(filename):
     try:
         file_path = os.path.join('uploads', filename)
+        logging.info("Procesando archivo: %s", file_path)
 
         # Leer el archivo CSV o Excel utilizando pandas
         if filename.endswith('.csv'):
@@ -31,12 +36,15 @@ def process_file(filename):
 
         # Realizar el "shape" y "describe" del DataFrame
         shape_info = df.shape
+        logging.info("Shape del DataFrame: %s", shape_info)
         describe_info = df.describe().to_html()
+        logging.info("Describe del DataFrame:\n%s", describe_info)
 
         return render_template('index.html', filename=filename, shape_info=shape_info, describe_info=describe_info)
 
     except Exception as e:
+        logging.error("Error al procesar el archivo: %s", str(e))
         return str(e)
 
 if __name__ == '__main__':
-    app.run(port=5050)
+    app.run(debug=True)
