@@ -33,7 +33,10 @@
 
     {% if describe_info %}
         <h2>Descripción del DataFrame:</h2>
-        {{ describe_info|safe }}
+        <!-- Aquí usaremos una tabla para mostrar el resultado del describe -->
+        <table border="1">
+            {{ describe_info|safe }}
+        </table>
     {% endif %}
 </body>
 </html>
