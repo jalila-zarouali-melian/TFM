@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Procesamiento de Archivo CSV/Excel</title>
+</head>
+<body>
+    <h1>Procesamiento de Archivo CSV/Excel</h1>
+    <form method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+        <input type="file" id="fileInput" name="file" accept=".csv,.xls,.xlsx" required>
+        <input type="submit" value="Procesar">
+    </form>
+
+    <script>
+        function validateForm() {
+            var fileInput = document.getElementById("fileInput");
+            var file = fileInput.files[0];
+            if (!file) {
+                alert("Por favor, selecciona un archivo.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+    {% if filename %}
+        <h2>Archivo procesado: {{ filename }}</h2>
+    {% endif %}
+
+    {% if shape_info %}
+        <h2>Información del DataFrame:</h2>
+        <p>El DataFrame tiene {{ shape_info.0 }} filas y {{ shape_info.1 }} columnas.</p>
+    {% endif %}
+
+    {% if describe_info %}
+        <h2>Descripción del DataFrame:</h2>
+        {{ describe_info|safe }}
+    {% endif %}
+</body>
+</html>
