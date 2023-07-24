@@ -1,62 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Procesamiento de Archivo CSV/Excel</title>
+    <title>Página Principal</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Procesamiento de Archivo CSV/Excel</h1>
-    <form method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
-        <input type="file" id="fileInput" name="file" accept=".csv,.xls,.xlsx" required>
-        <input type="submit" value="Procesar">
-    </form>
+    <h1>Bienvenido a la Página Principal</h1>
 
-    <script>
-        function validateForm() {
-            var fileInput = document.getElementById("fileInput");
-            var file = fileInput.files[0];
-            if (!file) {
-                alert("Por favor, selecciona un archivo.");
-                return false;
-            }
-            return true;
-        }
-    </script>
+    <!-- Navegación por pestañas -->
+    <ul class="nav">
+        <li><a href="{{ url_for('upload_file') }}">Cargar Archivo</a></li>
+        <li><a href="{{ url_for('process_file', filename='example.csv') }}">Ver Estadísticas</a></li>
+        <li><a href="{{ url_for('show_graph', filename='example.csv') }}">Ver Gráfico</a></li>
+    </ul>
 
-    {% if filename %}
-        <h2>Archivo procesado: {{ filename }}</h2>
-    {% endif %}
-
-    {% if shape_info %}
-        <h2>Información del DataFrame:</h2>
-        <p>El DataFrame tiene {{ shape_info.0 }} filas y {{ shape_info.1 }} columnas.</p>
-    {% endif %}
-
-    {% if info %}
-        <h2>Información Adicional:</h2>
-        <pre>{{ info }}</pre>
-    {% endif %}
-
-    {% if describe_info %}
-        <h2>Descripción del DataFrame:</h2>
-        <!-- Aquí usaremos una tabla para mostrar el resultado del describe -->
-        <table border="1">
-            {{ describe_info|safe }}
-        </table>
-    {% endif %}
-
-    {% if null_counts %}
-        <h2>Valores Nulos en cada columna:</h2>
-        <pre>{{ null_counts }}</pre>
-    {% endif %}
-
-    {% if missing_counts %}
-        <h2>Valores Faltantes en cada columna:</h2>
-        <pre>{{ missing_counts }}</pre>
-    {% endif %}
-
-    {% if graph %}
-        <h2>Gráfico de barras interactivo:</h2>
-        {{ graph|safe }}
-    {% endif %}
+    <!-- Contenido dinámico para cada sección -->
+    <div class="content-container">
+        {% block content %}{% endblock %}
+    </div>
 </body>
 </html>

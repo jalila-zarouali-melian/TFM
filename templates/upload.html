@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h2>Cargar Archivo</h2>
+    <form method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+        <input type="file" id="fileInput" name="file" accept=".csv,.xls,.xlsx" required>
+        <input type="submit" value="Procesar">
+    </form>
+
+    <script>
+        function validateForm() {
+            var fileInput = document.getElementById("fileInput");
+            var file = fileInput.files[0];
+            if (!file) {
+                alert("Por favor, selecciona un archivo.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+{% endblock %}
