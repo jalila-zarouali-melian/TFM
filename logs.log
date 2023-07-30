@@ -274,3 +274,55 @@
 2023-07-27 19:48:37,106:WARNING:/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/multimethod/__init__.py:315: FutureWarning: The default value of numeric_only in DataFrame.corr is deprecated. In a future version, it will default to False. Select only valid columns or specify the value of numeric_only to silence this warning.
   return func(*args, **kwargs)
 
+2023-07-30 12:44:51,940:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-07-30 12:44:51,941:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-07-30 12:44:51,941:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-07-30 12:44:51,941:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-07-30 12:44:52,254:WARNING:/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/numba/core/decorators.py:262: NumbaDeprecationWarning: [1mnumba.generated_jit is deprecated. Please see the documentation at: https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-generated-jit for more information and advice on a suitable replacement.[0m
+  warnings.warn(msg, NumbaDeprecationWarning)
+
+2023-07-30 12:44:52,272:WARNING:/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/visions/backends/shared/nan_handling.py:51: NumbaDeprecationWarning: [1mThe 'nopython' keyword argument was not supplied to the 'numba.jit' decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.[0m
+  def hasna(x: np.ndarray) -> bool:
+
+2023-07-30 12:45:29,460:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-07-30 12:45:29,460:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-07-30 12:45:29,460:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-07-30 12:45:29,460:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-07-30 12:45:29,736:WARNING:/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/numba/core/decorators.py:262: NumbaDeprecationWarning: [1mnumba.generated_jit is deprecated. Please see the documentation at: https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-generated-jit for more information and advice on a suitable replacement.[0m
+  warnings.warn(msg, NumbaDeprecationWarning)
+
+2023-07-30 12:45:29,757:WARNING:/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/visions/backends/shared/nan_handling.py:51: NumbaDeprecationWarning: [1mThe 'nopython' keyword argument was not supplied to the 'numba.jit' decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.[0m
+  def hasna(x: np.ndarray) -> bool:
+
+2023-07-30 12:45:48,745:WARNING:/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/multimethod/__init__.py:315: FutureWarning: iteritems is deprecated and will be removed in a future version. Use .items instead.
+  return func(*args, **kwargs)
+
+2023-07-30 12:45:49,602:WARNING:/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/multimethod/__init__.py:315: FutureWarning: The default value of numeric_only in DataFrame.corr is deprecated. In a future version, it will default to False. Select only valid columns or specify the value of numeric_only to silence this warning.
+  return func(*args, **kwargs)
+
+2023-07-30 12:49:03,791:WARNING:/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/multimethod/__init__.py:315: FutureWarning: iteritems is deprecated and will be removed in a future version. Use .items instead.
+  return func(*args, **kwargs)
+
+2023-07-30 12:49:04,469:WARNING:/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/multimethod/__init__.py:315: FutureWarning: The default value of numeric_only in DataFrame.corr is deprecated. In a future version, it will default to False. Select only valid columns or specify the value of numeric_only to silence this warning.
+  return func(*args, **kwargs)
+
+2023-07-30 12:49:19,556:WARNING:/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/multimethod/__init__.py:315: FutureWarning: iteritems is deprecated and will be removed in a future version. Use .items instead.
+  return func(*args, **kwargs)
+
+2023-07-30 12:49:20,200:WARNING:/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/multimethod/__init__.py:315: FutureWarning: The default value of numeric_only in DataFrame.corr is deprecated. In a future version, it will default to False. Select only valid columns or specify the value of numeric_only to silence this warning.
+  return func(*args, **kwargs)
+
+2023-07-30 12:49:35,539:WARNING:/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/multimethod/__init__.py:315: FutureWarning: iteritems is deprecated and will be removed in a future version. Use .items instead.
+  return func(*args, **kwargs)
+
+2023-07-30 12:49:36,180:WARNING:/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/multimethod/__init__.py:315: FutureWarning: The default value of numeric_only in DataFrame.corr is deprecated. In a future version, it will default to False. Select only valid columns or specify the value of numeric_only to silence this warning.
+  return func(*args, **kwargs)
+
