@@ -5,7 +5,11 @@ from pycaret.regression import setup, compare_models, pull, save_model, load_mod
 import pandas_profiling
 import pandas as pd
 from streamlit_pandas_profiling import st_profile_report
-import os 
+import os
+from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score, f1_score, roc_curve, auc
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
 
 # Helper function to load the DataFrame using caching
 @st.cache(allow_output_mutation=True)
@@ -39,18 +43,68 @@ if choice == "Análisis descriptivo":
     else:
         st.warning("Please upload a dataset first.")
 
+
+# Función para evaluación de los modelos:
+
+def eval_model(y_real, y_pred):
+    # Calcular las métricas
+    confusion = confusion_matrix(y_real, y_pred)
+    accuracy = round(accuracy_score(y_real, y_pred), 3)
+    precision = round(precision_score(y_real, y_pred, average='macro'), 3)
+    recall = round(recall_score(y_real, y_pred, average='macro'), 3)
+    f1 = round(f1_score(y_real, y_pred, average='macro'), 3)
+    false_positive_rate, recall, thresholds = roc_curve(y_real, y_pred)
+    roc_auc = auc(false_positive_rate, recall)
+    
+    # Mostrar los resultados de la evaluación del modelo
+    st.write('**Confusion Matrix:**')
+    st.write(confusion)
+    st.write('**Accuracy:**', accuracy)
+    st.write('**Precision:**', precision)
+    st.write('**Recall:**', recall)
+    st.write('**F1 Score:**', f1)
+    st.write('**AUC:**', roc_auc)
+
+    # ROC curve
+    plt.plot(false_positive_rate, recall, 'b')
+    plt.plot([0, 1], [0, 1], 'r--')
+    plt.title('ROC Curve')
+    st.pyplot(plt)
+
 if choice == "Modelaje":
     if df is not None:
-        chosen_target = st.selectbox('Choose the Target Column', df.columns)
+        target = st.selectbox('Choose the Target Column', df.columns)
         if st.button('Run Modelling'):
             # Convert 'price' column to numeric, coercing non-numeric values to NaN
-            setup(df, target=chosen_target, categorical_features=['Sex'])  # Specify 'Sex' as a categorical feature
-            setup_df = pull()
-            st.dataframe(setup_df)
-            best_model = compare_models()
-            compare_df = pull()
-            st.dataframe(compare_df)
-            save_model(best_model, 'best_model')
+            # Separar los dataset y eliminar la columna identificadora:
+            data_clean = df
+            data_train = data_clean[data_clean['type'] == 'train']
+            data_train.drop('type', axis=1, inplace=True)
+            data_pred = data_clean[data_clean['type'] == 'pred']
+            data_pred.drop('type', axis=1, inplace=True)
+            data_pred.drop('target', axis=1, inplace=True)
+            X_train, X_test, y_train, y_test = train_test_split(data_train.drop('target', axis=1),
+                                                                data_train.target,
+                                                                test_size=0.2,
+                                                                random_state=1234,
+                                                                stratify=data_train.target)
+            # Modelo de Random Forest:
+            # Creación del modelo
+
+            modelo_rf = RandomForestClassifier(
+                n_estimators=10,
+                criterion='gini',
+                max_depth=None,
+                max_features='sqrt',
+                oob_score=False,
+                n_jobs=-1,
+                random_state=123
+            )
+            # Entrenamiento del modelo
+            modelo_rf.fit(X_train, y_train)
+            pred1 = modelo_rf.predict(X_test)
+            eval_model(y_test, pred1)
+
     else:
         st.warning("Please upload a dataset first.")
 
