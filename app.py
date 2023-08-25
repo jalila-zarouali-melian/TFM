@@ -44,6 +44,9 @@ if choice == "Análisis descriptivo":
     else:
         st.warning("Please upload a dataset first.")
 
+# Preprocesado
+
+
 
 # Función para evaluación de los modelos:
 
@@ -76,19 +79,19 @@ if choice == "Modelaje":
     if df is not None:
         target = st.selectbox('Choose the Target Column', df.columns)
         if st.button('Run Modelling'):
-            # Convert 'price' column to numeric, coercing non-numeric values to NaN
             # Separar los dataset y eliminar la columna identificadora:
+
             data_clean = df
             data_train = data_clean[data_clean['type'] == 'train']
             data_train.drop('type', axis=1, inplace=True)
             data_pred = data_clean[data_clean['type'] == 'pred']
             data_pred.drop('type', axis=1, inplace=True)
-            data_pred.drop('target', axis=1, inplace=True)
-            X_train, X_test, y_train, y_test = train_test_split(data_train.drop('target', axis=1),
-                                                                data_train.target,
+            data_pred.drop(target, axis=1, inplace=True)
+            X_train, X_test, y_train, y_test = train_test_split(data_train.drop(target, axis=1),
+                                                                data_train[target],
                                                                 test_size=0.2,
                                                                 random_state=1234,
-                                                                stratify=data_train.target)
+                                                                stratify=data_train[target])
             # Modelo de Random Forest:
             # Creación del modelo
 
@@ -173,8 +176,18 @@ if choice == "Modelaje":
 
             # Boton para descargar las predicciones en Excel
             if st.button('Descargar predicciones'):
-                predictions.to_excel('predictions.xlsx', index=False)
-                st.success("Las predicciones se han descargado correctamente")
+                excel_file = BytesIO()
+                # Guardamos las predicciones en el objeto creado
+                predictions.to_excel(excel_file, index=False)
+
+                # Creamos un link para que el usuario seleccione donde guardar
+                st.download_button(
+                    label="Descargar predicciones",
+                    data=excel_file.getvalue(),
+                    file_name="predictions.xlsx",
+                    key="predictions_download"
+                )
+                st.success("Las predicciones se pueden descargar correctamente")
 
     else:
         st.warning("Please upload a dataset first.")

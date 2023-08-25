@@ -12120,3 +12120,255 @@ A value is trying to be set on a copy of a slice from a DataFrame
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
   data_pred.drop('target', axis=1, inplace=True)
 
+2023-08-25 17:14:12,631:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-08-25 17:14:12,632:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-08-25 17:14:12,632:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-08-25 17:14:12,632:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-08-25 17:14:14,077:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\venv\lib\site-packages\numba\core\decorators.py:262: NumbaDeprecationWarning: [1mnumba.generated_jit is deprecated. Please see the documentation at: https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-generated-jit for more information and advice on a suitable replacement.[0m
+  warnings.warn(msg, NumbaDeprecationWarning)
+
+2023-08-25 17:14:14,092:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\venv\lib\site-packages\visions\backends\shared\nan_handling.py:51: NumbaDeprecationWarning: [1mThe 'nopython' keyword argument was not supplied to the 'numba.jit' decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.[0m
+  def hasna(x: np.ndarray) -> bool:
+
+2023-08-25 17:14:14,654:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:5: DeprecationWarning: `import pandas_profiling` is going to be deprecated by April 1st. Please use `import ydata_profiling` instead.
+  import pandas_profiling
+
+2023-08-25 17:17:24,594:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-08-25 17:17:24,594:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-08-25 17:17:24,594:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-08-25 17:17:24,594:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-08-25 17:17:25,787:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\venv\lib\site-packages\numba\core\decorators.py:262: NumbaDeprecationWarning: [1mnumba.generated_jit is deprecated. Please see the documentation at: https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-generated-jit for more information and advice on a suitable replacement.[0m
+  warnings.warn(msg, NumbaDeprecationWarning)
+
+2023-08-25 17:17:25,800:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\venv\lib\site-packages\visions\backends\shared\nan_handling.py:51: NumbaDeprecationWarning: [1mThe 'nopython' keyword argument was not supplied to the 'numba.jit' decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.[0m
+  def hasna(x: np.ndarray) -> bool:
+
+2023-08-25 17:17:26,088:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:5: DeprecationWarning: `import pandas_profiling` is going to be deprecated by April 1st. Please use `import ydata_profiling` instead.
+  import pandas_profiling
+
+2023-08-25 17:17:56,058:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:83: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_train.drop('type', axis=1, inplace=True)
+
+2023-08-25 17:17:56,061:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:85: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_pred.drop('type', axis=1, inplace=True)
+
+2023-08-25 17:17:56,234:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:83: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_train.drop('type', axis=1, inplace=True)
+
+2023-08-25 17:17:56,238:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:85: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_pred.drop('type', axis=1, inplace=True)
+
+2023-08-25 17:29:29,948:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-08-25 17:29:29,948:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-08-25 17:29:29,948:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-08-25 17:29:29,948:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-08-25 17:29:31,257:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\venv\lib\site-packages\numba\core\decorators.py:262: NumbaDeprecationWarning: [1mnumba.generated_jit is deprecated. Please see the documentation at: https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-generated-jit for more information and advice on a suitable replacement.[0m
+  warnings.warn(msg, NumbaDeprecationWarning)
+
+2023-08-25 17:29:31,280:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\venv\lib\site-packages\visions\backends\shared\nan_handling.py:51: NumbaDeprecationWarning: [1mThe 'nopython' keyword argument was not supplied to the 'numba.jit' decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.[0m
+  def hasna(x: np.ndarray) -> bool:
+
+2023-08-25 17:29:31,696:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:5: DeprecationWarning: `import pandas_profiling` is going to be deprecated by April 1st. Please use `import ydata_profiling` instead.
+  import pandas_profiling
+
+2023-08-25 17:30:48,156:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:83: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_train.drop('type', axis=1, inplace=True)
+
+2023-08-25 17:30:48,161:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:85: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_pred.drop('type', axis=1, inplace=True)
+
+2023-08-25 17:30:48,162:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:86: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_pred.drop(target, axis=1, inplace=True)
+
+2023-08-25 17:31:01,487:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:83: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_train.drop('type', axis=1, inplace=True)
+
+2023-08-25 17:31:01,490:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:85: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_pred.drop('type', axis=1, inplace=True)
+
+2023-08-25 17:31:01,492:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:86: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_pred.drop(target, axis=1, inplace=True)
+
+2023-08-25 17:34:07,827:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-08-25 17:34:07,828:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-08-25 17:34:07,829:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-08-25 17:34:07,829:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-08-25 17:34:09,274:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\venv\lib\site-packages\numba\core\decorators.py:262: NumbaDeprecationWarning: [1mnumba.generated_jit is deprecated. Please see the documentation at: https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-generated-jit for more information and advice on a suitable replacement.[0m
+  warnings.warn(msg, NumbaDeprecationWarning)
+
+2023-08-25 17:34:09,295:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\venv\lib\site-packages\visions\backends\shared\nan_handling.py:51: NumbaDeprecationWarning: [1mThe 'nopython' keyword argument was not supplied to the 'numba.jit' decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.[0m
+  def hasna(x: np.ndarray) -> bool:
+
+2023-08-25 17:34:09,828:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:5: DeprecationWarning: `import pandas_profiling` is going to be deprecated by April 1st. Please use `import ydata_profiling` instead.
+  import pandas_profiling
+
+2023-08-25 17:34:38,258:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:83: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_train.drop('type', axis=1, inplace=True)
+
+2023-08-25 17:34:38,261:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:85: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_pred.drop('type', axis=1, inplace=True)
+
+2023-08-25 17:34:38,262:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:86: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_pred.drop(target, axis=1, inplace=True)
+
+2023-08-25 17:36:17,816:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-08-25 17:36:17,817:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-08-25 17:36:17,817:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-08-25 17:36:17,817:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-08-25 17:36:19,041:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\venv\lib\site-packages\numba\core\decorators.py:262: NumbaDeprecationWarning: [1mnumba.generated_jit is deprecated. Please see the documentation at: https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-generated-jit for more information and advice on a suitable replacement.[0m
+  warnings.warn(msg, NumbaDeprecationWarning)
+
+2023-08-25 17:36:19,053:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\venv\lib\site-packages\visions\backends\shared\nan_handling.py:51: NumbaDeprecationWarning: [1mThe 'nopython' keyword argument was not supplied to the 'numba.jit' decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.[0m
+  def hasna(x: np.ndarray) -> bool:
+
+2023-08-25 17:36:19,364:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:5: DeprecationWarning: `import pandas_profiling` is going to be deprecated by April 1st. Please use `import ydata_profiling` instead.
+  import pandas_profiling
+
+2023-08-25 17:36:43,440:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:83: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_train.drop('type', axis=1, inplace=True)
+
+2023-08-25 17:36:43,442:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:85: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_pred.drop('type', axis=1, inplace=True)
+
+2023-08-25 17:36:43,443:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:86: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_pred.drop(target, axis=1, inplace=True)
+
+2023-08-25 17:42:03,814:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:83: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_train.drop('type', axis=1, inplace=True)
+
+2023-08-25 17:42:03,816:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:85: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_pred.drop('type', axis=1, inplace=True)
+
+2023-08-25 17:42:03,817:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:86: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_pred.drop(target, axis=1, inplace=True)
+
+2023-08-25 18:16:09,401:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-08-25 18:16:09,402:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-08-25 18:16:09,402:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-08-25 18:16:09,402:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-08-25 18:16:10,653:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\venv\lib\site-packages\numba\core\decorators.py:262: NumbaDeprecationWarning: [1mnumba.generated_jit is deprecated. Please see the documentation at: https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-generated-jit for more information and advice on a suitable replacement.[0m
+  warnings.warn(msg, NumbaDeprecationWarning)
+
+2023-08-25 18:16:10,675:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\venv\lib\site-packages\visions\backends\shared\nan_handling.py:51: NumbaDeprecationWarning: [1mThe 'nopython' keyword argument was not supplied to the 'numba.jit' decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.[0m
+  def hasna(x: np.ndarray) -> bool:
+
+2023-08-25 18:16:10,982:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:5: DeprecationWarning: `import pandas_profiling` is going to be deprecated by April 1st. Please use `import ydata_profiling` instead.
+  import pandas_profiling
+
+2023-08-25 18:26:06,977:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:83: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_train.drop('type', axis=1, inplace=True)
+
+2023-08-25 18:26:06,980:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:85: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_pred.drop('type', axis=1, inplace=True)
+
+2023-08-25 18:26:06,980:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:86: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_pred.drop(target, axis=1, inplace=True)
+
+2023-08-25 18:28:11,431:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:83: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_train.drop('type', axis=1, inplace=True)
+
+2023-08-25 18:28:11,433:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:85: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_pred.drop('type', axis=1, inplace=True)
+
+2023-08-25 18:28:11,434:WARNING:C:\Users\ferli\OneDrive\Desktop\TFM\TFM\app.py:86: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_pred.drop(target, axis=1, inplace=True)
+

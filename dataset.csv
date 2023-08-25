@@ -1,4 +1,4 @@
-Unnamed: 0,ID,Acidez,AcidoCitrico,Azucar,CloruroSodico,Densidad,pH,Sulfatos,Alcohol,CalifProductor,PrecioBotella,Region,prop_missings,Beneficio,target,type
+Unnamed: 0,ID,Acidez,AcidoCitrico,Azucar,CloruroSodico,Densidad,pH,Sulfatos,Alcohol,CalifProductor,PrecioBotella,Region,prop_missings,Beneficio,Compra,type
 0,2,0.16,-0.81,26.1,-0.425,1.02792,3.38,0.7,14.6,2,1.0,1,7.692307692,515,1.0,train
 1,4,2.64,-0.88,14.8,0.037,0.99518,3.12,0.48,22.0,3,3.38,3,0.0,585,1.0,train
 2,8,0.29,-0.4,21.5,0.06,0.99572,3.49,1.21,10.3,3,3.72,1,0.0,0,0.0,train
