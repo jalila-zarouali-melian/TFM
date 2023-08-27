@@ -99,7 +99,7 @@ if choice == "Preprocesado":
 
         st.subheader("Categorización")
         df_categorico = convertir_a_categoricas(df_limpio, valor_limite=10)
-        st.dataframe(df_categorico.dtypes)
+        st.dataframe(df_categorico.dtypes.astype(str))
 
         st.subheader("Imputación de nulos")
         df_imputado = imputar_valores_nulos(df_categorico)
