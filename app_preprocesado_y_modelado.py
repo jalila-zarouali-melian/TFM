@@ -22,22 +22,39 @@ def load_dataframe():
         return pd.read_csv('dataset.csv', index_col=None)
     return None
 
+@st.cache(allow_output_mutation=True)
+def load_prediction_data():
+    if os.path.exists('./predictions.csv'):
+        return pd.read_csv('predictions.csv', index_col=None)
+    return None
+
 # Load the DataFrame
 df = load_dataframe()
+prediction_df = load_prediction_data()
 
 with st.sidebar:
     st.image("https://www.onepointltd.com/wp-content/uploads/2020/03/inno2.png")
     st.title("Automodeladorv.1")
-    choice = st.radio("Navigation", ["subir fichero","Análisis descriptivo", "Preprocesado", "Modelaje", "Descargar modelo"])
+    choice = st.radio("Navigation", ["Subir dataset", "Subir predicciones", "Análisis descriptivo", "Preprocesado", "Modelaje", "Descargar modelo"])
     st.info("Esta aplicación automatiza el proceso de creación de un modelo.")
 
-if choice == "subir fichero":
-    st.title("subir fichero")
-    file = st.file_uploader("subir fichero")
+if choice == "Subir dataset":
+    st.title("Subir dataset")
+    file = st.file_uploader("subir dataset")
     if file:
         df = pd.read_csv(file, index_col=None)
         df.to_csv('dataset.csv', index=None)
         st.dataframe(df)
+
+if choice == "Subir predicciones":
+    st.title("Subir predicciones")
+    predictions_file = st.file_uploader("subir predicciones")
+    if predictions_file:
+        prediction_df = pd.read_csv(predictions_file, index_col=None)
+        prediction_df.to_csv('predictions.csv', index=None)
+        st.dataframe(prediction_df)
+
+df = pd.concat([df, prediction_df], axis=1)
 
 if choice == "Análisis descriptivo":
     st.title("Exploratory Data Analysis")
