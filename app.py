@@ -1,16 +1,20 @@
 from operator import index
 import streamlit as st
 import plotly.express as px
-from pycaret.regression import setup, compare_models, pull, save_model, load_model
 import pandas_profiling
 import pandas as pd
 from streamlit_pandas_profiling import st_profile_report
 import os
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score, f1_score, roc_curve, auc
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
+from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
+from io import BytesIO
+
 
 # Helper function to load the DataFrame using caching
 @st.cache(allow_output_mutation=True)
@@ -19,13 +23,14 @@ def load_dataframe():
         return pd.read_csv('dataset.csv', index_col=None)
     return None
 
+
 # Load the DataFrame
 df = load_dataframe()
 
 with st.sidebar:
     st.image("https://www.onepointltd.com/wp-content/uploads/2020/03/inno2.png")
     st.title("Automodeladorv.1")
-    choice = st.radio("Navigation", ["subir fichero","Análisis descriptivo","Modelaje", "Descargar modelo"])
+    choice = st.radio("Navigation", ["subir fichero", "Análisis descriptivo", "Modelaje", "Descargar modelo"])
     st.info("Esta aplicación automatiza el proceso de creación de un modelo.")
 
 if choice == "subir fichero":
@@ -44,8 +49,8 @@ if choice == "Análisis descriptivo":
     else:
         st.warning("Please upload a dataset first.")
 
-# Preprocesado
 
+# Preprocesado
 
 
 # Función para evaluación de los modelos:
@@ -59,7 +64,7 @@ def eval_model(y_real, y_pred):
     f1 = round(f1_score(y_real, y_pred, average='macro'), 3)
     false_positive_rate, recall, thresholds = roc_curve(y_real, y_pred)
     roc_auc = auc(false_positive_rate, recall)
-    
+
     # Mostrar los resultados de la evaluación del modelo
     st.write('Confusion Matrix:')
     st.write(confusion)
@@ -75,9 +80,20 @@ def eval_model(y_real, y_pred):
     plt.title('ROC Curve')
     st.pyplot(plt)
 
+
+predictions = None
+download_button_pressed = False
 if choice == "Modelaje":
     if df is not None:
         target = st.selectbox('Choose the Target Column', df.columns)
+
+        # Preguntamos al usuario si quiere tuneo de hiperparámetros:
+        optimize_hyperparams = st.checkbox("Modelo con hiperparámetros optimizados")
+
+        best_model = None
+        default_model = None
+        best_accuracy = 0
+
         if st.button('Run Modelling'):
             # Separar los dataset y eliminar la columna identificadora:
 
@@ -94,7 +110,6 @@ if choice == "Modelaje":
                                                                 stratify=data_train[target])
             # Modelo de Random Forest:
             # Creación del modelo
-
             modelo_rf = RandomForestClassifier(
                 n_estimators=10,
                 criterion='gini',
@@ -104,45 +119,12 @@ if choice == "Modelaje":
                 n_jobs=-1,
                 random_state=123
             )
-            # Evaluacion del modelo
             modelo_rf.fit(X_train, y_train)
-            pred1 = modelo_rf.predict(X_test)
-            st.write("**Resultados para Random Forest:**")
-            eval_model(y_test, pred1)
-
-            # Lista de variables más importantes:
-            feature_importances1 = modelo_rf.feature_importances_
-            imp = {}
-            for i in range(len(X_train.columns)):
-                imp[X_train.columns[i]] = [feature_importances1[i]]
-            var_imp1 = pd.DataFrame.from_dict(imp,
-                                   orient="index",
-                                   columns=["Importance"]).sort_values("Importance",
-                                                                       ascending=False).head(20).style.background_gradient()
-            st.write("**Variables más importantes:**")
-            st.write(var_imp1)
 
             # Modelo Regresion logistica:
             # Creación del modelo:
             reg_log = LogisticRegression(max_iter=10000)
             reg_log.fit(X_train, y_train)
-
-            #Evaluacion del modelo:
-            pred2 = reg_log.predict(X_test)
-            st.write("**Resultados para Regresión Logística:**")
-            eval_model(y_test, pred2)
-
-            # Lista de variables más importantes:
-            feature_importances2 = abs(reg_log.coef_[0])
-            imp2 = {}
-            for i in range(len(X_train.columns)):
-                imp2[X_train.columns[i]] = [feature_importances2[i]]
-            var_imp2 = pd.DataFrame.from_dict(imp2,
-                                   orient="index",
-                                   columns=["Importance"]).sort_values("Importance",
-                                                                       ascending=False).head(20).style.background_gradient()
-            st.write("**Variables más importantes:**")
-            st.write(var_imp2)
 
             # Comparación de los dos modelos:
             modelos = [modelo_rf, reg_log]
@@ -156,38 +138,119 @@ if choice == "Modelaje":
                 results.append({'Model': model.__class__.__name__, 'Accuracy': accuracy,
                                 'Precision': precision, 'Recall': recall, 'F1': f1})
             comparacion = pd.DataFrame(results)
-            st.write("**Comparación entre los dos modelos**")
+            st.write("**Comparación entre los modelos**")
             st.write(comparacion)
 
             # Selección del mejor modelo:
             comparacion_sorted = comparacion.sort_values(by='Accuracy', ascending=False)
-            best_model = comparacion_sorted.iloc[0]['Model']
+            best_model_type = comparacion_sorted.iloc[0]['Model']
             best_accuracy = comparacion_sorted.iloc[0]['Accuracy']
-            st.write("Mejor modelo basado en accuracy:")
-            st.write(best_model)
+            st.write("**Mejor modelo basado en accuracy:**", best_model_type)
+            st.write('**Resultados del modelo:**')
+
+            # Redefinimos default_model basados en el mejor modelo
+            if best_model_type == "RandomForestClassifier":
+                default_model = modelo_rf
+                # Evaluacion del modelo
+
+                pred1 = modelo_rf.predict(X_test)
+                eval_model(y_test, pred1)
+
+                # Lista de variables más importantes:
+                feature_importances1 = modelo_rf.feature_importances_
+                imp = {}
+                for i in range(len(X_train.columns)):
+                    imp[X_train.columns[i]] = [feature_importances1[i]]
+                var_imp1 = pd.DataFrame.from_dict(imp,
+                                                  orient="index",
+                                                  columns=["Importance"]
+                                                  ).sort_values("Importance",
+                                                                ascending=False).head(20).style.background_gradient()
+                st.write("**Variables más importantes:**")
+                st.write(var_imp1)
+            elif best_model_type == "LogisticRegression":
+                default_model = reg_log
+                # Evaluacion del modelo:
+                pred2 = reg_log.predict(X_test)
+                eval_model(y_test, pred2)
+
+                # Lista de variables más importantes:
+                feature_importances2 = abs(reg_log.coef_[0])
+                imp2 = {}
+                for i in range(len(X_train.columns)):
+                    imp2[X_train.columns[i]] = [feature_importances2[i]]
+                var_imp2 = pd.DataFrame.from_dict(imp2,
+                                                  orient="index",
+                                                  columns=["Importance"]
+                                                  ).sort_values("Importance",
+                                                                ascending=False).head(20).style.background_gradient()
+                st.write("**Variables más importantes:**")
+                st.write(var_imp2)
+
+            # Hacemos tuneo de hiperparámetros para el mejor modelo:
+            if optimize_hyperparams:
+                st.write('**Resultados con optimización de parámetros:**')
+                if best_model_type == "RandomForestClassifier":
+                    param_grid_rf = {
+                        'n_estimators': [10, 50, 100],
+                        'max_depth': [None, 20],
+                        'min_samples_split': [2, 10],
+                        'min_samples_leaf': [1, 4],
+                        'max_features': ['auto', 'sqrt'],
+                        'bootstrap': [True, False]
+                    }
+                    random_search_rf = RandomizedSearchCV(modelo_rf, param_distributions=param_grid_rf, n_iter=50, cv=5,
+                                                          n_jobs=-1, random_state=123)
+                    random_search_rf.fit(X_train, y_train)
+                    best_hyperparameters_rf = random_search_rf.best_params_
+                    best_model = RandomForestClassifier(**best_hyperparameters_rf, random_state=123)
+                    best_model.fit(X_train, y_train)
+
+                elif best_model_type == "LogisticRegression":
+                    param_grid_lr = {
+                        'C': [0.01, 0.1, 1, 10, 100],
+                        'penalty': ['l1', 'l2'],
+                        'solver': ['liblinear']
+                    }
+                    grid_search_lr = GridSearchCV(reg_log, param_grid=param_grid_lr, cv=5, n_jobs=-1)
+                    grid_search_lr.fit(X_train, y_train)
+
+                    best_hyperparameters_lr = grid_search_lr.best_params_
+
+                    # Create and train the final Logistic Regression model with the best hyperparameters
+                    best_model = LogisticRegression(**best_hyperparameters_lr, max_iter=10000, random_state=123)
+                    best_model.fit(X_train, y_train)
+
+                pred3 = best_model.predict(X_test)
+                eval_model(y_test, pred3)
+
+            if not optimize_hyperparams:
+                best_model = default_model
 
             # predecir los labels para el dataset de predictores (los datos que desconoce el usuario)
-            model = reg_log  # ver como lo hacemos porque debe estar linkeado con la selección del usuario
-            pred_final = model.predict(data_pred)
+            pred_final = best_model.predict(data_pred)
             predictions = data_pred.copy()
             predictions['Predictions'] = pred_final
             st.write("**Predicciones:**")
             st.write(predictions)
 
+            # Store predictions in session state
+            st.session_state.predictions = predictions
+
             # Boton para descargar las predicciones en Excel
-            if st.button('Descargar predicciones'):
+            if 'predictions' in st.session_state:
                 excel_file = BytesIO()
                 # Guardamos las predicciones en el objeto creado
-                predictions.to_excel(excel_file, index=False)
-
+                st.session_state.predictions.to_excel(excel_file, index=False)
                 # Creamos un link para que el usuario seleccione donde guardar
-                st.download_button(
+                if st.download_button(
                     label="Descargar predicciones",
                     data=excel_file.getvalue(),
                     file_name="predictions.xlsx",
-                    key="predictions_download"
-                )
-                st.success("Las predicciones se pueden descargar correctamente")
+                    key="predictions_download",
+                    help="Haz clic para descargar las predicciones en formato XLSX"
+                ):
+                    st.success("Las predicciones se descargaron correctamente")
 
     else:
         st.warning("Please upload a dataset first.")
