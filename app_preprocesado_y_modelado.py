@@ -54,7 +54,8 @@ if choice == "Subir predicciones":
         prediction_df.to_csv('predictions.csv', index=None)
         st.dataframe(prediction_df)
 
-df = pd.concat([df, prediction_df], axis=1)
+if df is not None and prediction_df is not None:
+    df = pd.concat([df, prediction_df], axis=1)
 
 if choice == "Análisis descriptivo":
     st.title("Exploratory Data Analysis")
