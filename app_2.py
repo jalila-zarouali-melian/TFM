@@ -101,7 +101,7 @@ def normalizar_dataset(dataset):
     return dataset
 def label_encoding(dataset):
     label_encoder = LabelEncoder()
-    for columna in dataset.select_dtypes(include='category'):
+    for columna in dataset.select_dtypes(include='category').columns.difference(['type']):
         dataset[columna] = label_encoder.fit_transform(dataset[columna])
 
     return dataset
@@ -155,7 +155,7 @@ if choice == "Preprocesado":
             st.dataframe(st.session_state.df_clean)
 
             st.subheader("Checkear desbalanceo")
-            desbalanceo = verificar_desbalanceo(df_clean, target)
+            desbalanceo = verificar_desbalanceo(st.session_state.df_clean, target)
             if desbalanceo:
                 st.warning("El dataset sufre de desbalanceo en la variable objetivo.")
             else:
@@ -194,6 +194,7 @@ def eval_model(y_real, y_pred):
 predictions = None
 download_button_pressed = False
 if choice == "Modelaje":
+    st.title("Modelado y predicciones")
     if df is not None:
         if 'df_clean' in st.session_state:
             df_clean = st.session_state.df_clean
@@ -249,7 +250,7 @@ if choice == "Modelaje":
                     results.append({'Model': model.__class__.__name__, 'Accuracy': accuracy,
                                     'Precision': precision, 'Recall': recall, 'F1': f1})
                 comparacion = pd.DataFrame(results)
-                st.write("**Comparación entre los modelos**")
+                st.subheader("Comparación entre los modelos")
                 st.write(comparacion)
 
                 # Selección del mejor modelo:
@@ -257,7 +258,7 @@ if choice == "Modelaje":
                 best_model_type = comparacion_sorted.iloc[0]['Model']
                 best_accuracy = comparacion_sorted.iloc[0]['Accuracy']
                 st.write("**Mejor modelo basado en accuracy:**", best_model_type)
-                st.write('**Resultados del modelo:**')
+                st.subheader('Resultados del modelo:')
 
                 # Redefinimos default_model basados en el mejor modelo
                 if best_model_type == "RandomForestClassifier":
@@ -300,7 +301,7 @@ if choice == "Modelaje":
 
                 # Hacemos tuneo de hiperparámetros para el mejor modelo:
                 if optimize_hyperparams:
-                    st.write('**Resultados con optimización de parámetros:**')
+                    st.subheader('Resultados con optimización de parámetros:')
                     if best_model_type == "RandomForestClassifier":
                         param_grid_rf = {
                             'n_estimators': [10, 50, 100],
@@ -342,7 +343,7 @@ if choice == "Modelaje":
                 pred_final = best_model.predict(data_pred)
                 predictions = data_pred.copy()
                 predictions['Predictions'] = pred_final
-                st.write("**Predicciones:**")
+                st.subheader("Predicciones:")
                 st.write(predictions)
 
                 # Store predictions in session state
