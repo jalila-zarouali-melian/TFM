@@ -16,13 +16,13 @@ import matplotlib.pyplot as plt
 from io import BytesIO
 
 # Helper function to load the DataFrame using caching
-@st.cache(allow_output_mutation=True)
+@st.cache_data(allow_output_mutation=True)
 def load_dataframe():
     if os.path.exists('./dataset.csv'):
         return pd.read_csv('dataset.csv', index_col=None)
     return None
 
-@st.cache(allow_output_mutation=True)
+@st.cache_data(allow_output_mutation=True)
 def load_prediction_data():
     if os.path.exists('./predictions.csv'):
         return pd.read_csv('predictions.csv', index_col=None)
