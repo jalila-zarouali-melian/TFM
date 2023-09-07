@@ -1,23 +1,4 @@
-import os
-from flask import Flask, request, render_template, redirect, url_for
-import pandas as pd
-
-app = Flask(_name_)
-
-
-# Ruta para la página principal
-@app.route('/', methods=['GET', 'POST'])
-def upload_file():
-    if request.method == 'POST':
-        file = request.files['file']
-        if file:
-            # Crear el directorio "uploads" si no existe
-            if not os.path.exists('uploads'):
-                os.makedirs('uploads')
-
-            filename = file.filename
-            file.save(os.path.join('uploads', filename))
-            return redirect(url_for('process_file', filename=filename))
+ename=filename))
     return render_template('index.html')
 
 
