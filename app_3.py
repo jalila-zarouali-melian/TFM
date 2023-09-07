@@ -23,6 +23,7 @@ def load_dataframe():
         return pd.read_csv('dataset.csv', index_col=None)
     return None
 
+@st.cache_data()
 def load_prediction_data():
     if os.path.exists('./predictions.csv'):
         return pd.read_csv('predictions.csv', index_col=None)
@@ -35,8 +36,26 @@ prediction_df = load_prediction_data()
 with st.sidebar:
     st.image("https://www.onepointltd.com/wp-content/uploads/2020/03/inno2.png")
     st.title("Automodeladorv.1")
-    choice = st.radio("Navigation", ["Subir ficheros", "Análisis descriptivo", "Preprocesado", "Modelaje", "Generar nuevas predicciones", "Descargar modelo"])
+    choice = st.radio("Navigation", ["Subir ficheros", "Análisis descriptivo", "Preprocesado", "Modelaje", "Descargar modelo"])
     st.info("Esta aplicación automatiza el proceso de creación de un modelo de predicción de datos para datasets con variables de respuesta binarias.")
+
+def run_ficheros():
+    st.header("Sube los ficheros")
+    file = st.file_uploader("**Subir dataset para entrenar el modelo**")
+    if file:
+        df = pd.read_csv(file, index_col=None)
+        df.to_csv('dataset.csv', index=None)
+        st.dataframe(df)
+    predictions_file = st.file_uploader("**Subir dataset cuyos outputs desconoscas para generar predicciones**")
+    if predictions_file:
+        prediction_df = pd.read_csv(predictions_file, index_col=None)
+        prediction_df.to_csv('predictions.csv', index=None)
+        st.dataframe(prediction_df)
+    result = {df, prediction_df}  # Store results or data for Section 1
+    return result
+
+def
+
 
 if choice == "Subir ficheros":
     st.title("Sube los ficheros")
@@ -45,7 +64,7 @@ if choice == "Subir ficheros":
         df = pd.read_csv(file, index_col=None)
         df.to_csv('dataset.csv', index=None)
         st.dataframe(df)
-    predictions_file = st.file_uploader("**Subir dataset cuyos outputs desconozcas para generar predicciones**")
+    predictions_file = st.file_uploader("**Subir dataset cuyos outputs desconoscas para generar predicciones**")
     if predictions_file:
         prediction_df = pd.read_csv(predictions_file, index_col=None)
         prediction_df.to_csv('predictions.csv', index=None)
@@ -65,7 +84,7 @@ if choice == "Análisis descriptivo":
 #Creamos una columna que identifique cada dataset para luego concatenarlos
 df['type'] = 'train'
 prediction_df['type'] = 'pred'
-df1 = pd.concat([df, prediction_df], sort = False, ignore_index=False)
+df = pd.concat([df, prediction_df], sort = False, ignore_index=False)
 
 df_clean = None
 
@@ -121,10 +140,10 @@ def verificar_desbalanceo(dataset, variable_objetivo):
 if choice == "Preprocesado":
     st.title("Preprocesado")
     if df is not None:
-        st.session_state.target = st.selectbox('Elige la variable objetivo', df.columns)
+        target = st.selectbox('Elige la variable objetivo', df.columns)
         if st.button('Ejecutar preprocesado'):
             st.subheader("Tratamiento de nulos y missings")
-            df_limpio = eliminar_columnas_con_nulos(df1, porcentaje_limite=0.2)
+            df_limpio = eliminar_columnas_con_nulos(df, porcentaje_limite=0.2)
             st.dataframe(df_limpio)
 
             st.subheader("Categorización")
@@ -155,7 +174,7 @@ if choice == "Preprocesado":
             st.dataframe(st.session_state.df_clean)
 
             st.subheader("Checkear desbalanceo")
-            desbalanceo = verificar_desbalanceo(st.session_state.df_clean, st.session_state.target)
+            desbalanceo = verificar_desbalanceo(st.session_state.df_clean, target)
             if desbalanceo:
                 st.warning("El dataset sufre de desbalanceo en la variable objetivo.")
             else:
@@ -198,13 +217,15 @@ if choice == "Modelaje":
     if df is not None:
         if 'df_clean' in st.session_state:
             df_clean = st.session_state.df_clean
-            target = st.session_state.target
+            target = st.selectbox('Choose the Target Column', df.columns)
 
             # Preguntamos al usuario si quiere tuneo de hiperparámetros:
             optimize_hyperparams = st.checkbox("Modelo con hiperparámetros optimizados")
+
+            best_model = None
             default_model = None
             best_accuracy = 0
-            best_model = None
+
             if st.button('Run Modelling'):
                 # Separar los dataset y eliminar la columna identificadora:
 
@@ -367,54 +388,9 @@ if choice == "Modelaje":
     else:
         st.warning('Antes de ejecutar el modelado, debes cargar el dataset')
 
-def load_pred2():
-    if os.path.exists('./predictions2.csv'):
-        return pd.read_csv('predictions2.csv', index_col=None)
-    return None
-pred2 = load_pred2()
-
-if choice == "Generar nuevas predicciones":
-    if 'predictions' in st.session_state:
-        st.title("Generar nuevas predicciones")
-        target = st.session_state.target
-        predictions_file2 = st.file_uploader("**Subir un dataset cuyos outputs desconozcas para generar predicciones**")
-        if predictions_file2:
-            pred2 = pd.read_csv(predictions_file2, index_col=None)
-            pred2.to_csv('predictions2.csv', index=None)
-            st.dataframe(pred2)
-
-        #ejecutamos preprocesado nuevamente para limpiar los datos a predecir
-        pred2['type'] = "pred2"
-        df2 = pd.concat([df, pred2], sort=False, ignore_index=False)
-        df_limpio2 = eliminar_columnas_con_nulos(df2, porcentaje_limite=0.2)
-        df_categorico2 = convertir_a_categoricas(df_limpio2, valor_limite=10)
-        df_imputado2 = imputar_valores_nulos(df_categorico2)
-        df_normalizado2 = normalizar_dataset(df_imputado2)
-        df_clean2 = label_encoding(df_normalizado2)
-
-        #Volvemos a separar el dataset de predicciones ya limpio
-        data_pred2 = df_clean2[df_clean2['type'] == 'pred2']
-        data_pred2.drop('type', axis=1, inplace=True)
-
-
-        st.write("Dataset limpio y transformado para generar predicciones:")
-        st.dataframe(data_pred2)
-
-        #Generar predicciones:
-        if st.button('Generar predicciones'):
-            st.write("Hola")
-
-    else:
-        st.warning('Para generar nuevas predicciones, debes ejecutar el modelado')
-
-
-
-
-
-
 if choice == "Descargar modelo":
     if df is not None:
         with open('best_model.pkl', 'rb') as f:
             st.download_button('Download Model', f, file_name="best_model.pkl")
     else:
-        st.warning("Antes de ejecutar el modelado, debes cargar el dataset")
+        st.warning("Please upload a dataset first.")
