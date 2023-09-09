@@ -10,6 +10,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
 from io import BytesIO
+import seaborn as sns
 from dotenv import load_dotenv
 import os
 from pandasai.llm.openai import OpenAI
@@ -18,7 +19,9 @@ import matplotlib.pyplot as plt
 import matplotlib
 from streamlit_option_menu import option_menu
 
-
+with open('style.css', 'r') as f:
+    css = f.read()
+st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
 
 uploaded_file = None
 
@@ -52,6 +55,88 @@ if selected == "Data Science":
 
     if sub_selected == "simple":
         st.write("You selected the 'simple' option")
+
+
+        @st.cache_data()
+        def load_dataframe():
+            if os.path.exists('./dataset.csv'):
+                return pd.read_csv('dataset.csv', index_col=None)
+            return None
+
+        df = load_dataframe()
+
+        with st.sidebar:
+            st.image("https://www.onepointltd.com/wp-content/uploads/2020/03/inno2.png")
+            st.title("No Code App.1")
+            choice = st.radio("Navigation", ["Subir ficheros", "Análisis descriptivo simple","Modelaje",
+                                              "Descargar modelo"])
+            st.info(
+                "Esta aplicación automatiza el proceso de creación de un modelo de predicción de datos para datasets con variables de respuesta binarias.")
+
+        if choice == "Subir ficheros":
+            st.title("Sube los ficheros")
+            file = st.file_uploader("Choose a CSV file", type="csv")
+
+            if file:
+                df = pd.read_csv(file, index_col=None)
+                df.to_csv('dataset.csv', index=None)
+                st.dataframe(df)
+
+        if choice == "Análisis descriptivo simple":
+            st.title("Exploratory Data Analysis")
+
+            if df is not None:
+                # Encontrar columna con más datos missing
+                missing_data = df.isnull().sum()
+                max_missing_col = missing_data.idxmax()
+                max_missing_percent = (missing_data.max() / df.shape[0]) * 100
+                total_missing = missing_data.sum()
+
+                with st.container():
+                    st.markdown("<h1>Análisis de datos missing</h1>", unsafe_allow_html=True)
+                    st.markdown(f"""
+                                     <div class="card-container">
+                                         <div class="card blue">
+                                             <h2>Columna con más datos missing</h2>
+                                             <p>{max_missing_col}</p>
+                                             <p>{max_missing_percent:.2f}%</p>
+                                         </div>
+                                         <div class="card yellow">
+                                             <h2>Total de datos missing en el dataset</h2>
+                                             <p>{total_missing}</p>
+                                         </div>
+                                     </div>
+                                     """, unsafe_allow_html=True)
+
+                # Información sobre tipos de variables
+                var_types = df.dtypes
+                categorical_vars = sum(var_types == 'object')
+                numerical_vars = sum(var_types != 'object')
+
+                with st.container():
+                    st.markdown("<h1>Información de variables</h1>", unsafe_allow_html=True)
+                    st.markdown(f"""
+                        <div class="card-container">
+                            <div class="card blue">
+                                <h2>Variables categóricas</h2>
+                                <p>{categorical_vars}</p>
+                            </div>
+                            <div class="card green">
+                                <h2>Variables numéricas</h2>
+                                <p>{numerical_vars}</p>
+                            </div>
+                        </div>
+                        """, unsafe_allow_html=True)
+
+                # Heatmap de correlaciones
+                st.subheader("Heatmap de correlaciones")
+                corr = df.corr()
+                plt.figure(figsize=(10, 8))
+                sns.heatmap(corr, annot=True, cmap="coolwarm", fmt=".2f")
+                st.pyplot(plt)
+            else:
+                st.warning("Please upload a dataset first.")
+
     if sub_selected == "complex":
         st.write("You selected the 'complex' option")
 
