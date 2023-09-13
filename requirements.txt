@@ -177,7 +177,7 @@ spacy-loggers==1.0.4
 SpeechRecognition==3.8.1
 SQLAlchemy==1.4.42
 sqlparse==0.4.3
-srsly==3.0.0
+srsly==2.6.0
 stack-data==0.5.1
 statsmodels==0.13.2
 streamlit==1.13.0
