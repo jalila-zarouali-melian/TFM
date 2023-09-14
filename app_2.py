@@ -18,7 +18,7 @@ from io import BytesIO
 
 
 # Helper function to load the DataFrame using caching
-@st.cache_data()
+
 def load_dataframe():
     if os.path.exists('./dataset.csv'):
         return pd.read_csv('dataset.csv', index_col=None)
@@ -200,6 +200,7 @@ if choice == "Modelaje":
         if 'df_clean' in st.session_state:
             df_clean = st.session_state.df_clean
             target = st.session_state.target
+            unique_classes = df_clean[target].unique()
 
             # Preguntamos al usuario si quiere tuneo de hiperparámetros:
             optimize_hyperparams = st.checkbox("Modelo con hiperparámetros optimizados")
@@ -220,7 +221,6 @@ if choice == "Modelaje":
                                                                     random_state=1234,
                                                                     stratify=data_train[target])
                 # Modelo de Random Forest:
-                # Creación del modelo
                 modelo_rf = RandomForestClassifier(
                     n_estimators=10,
                     criterion='gini',
@@ -233,9 +233,9 @@ if choice == "Modelaje":
                 modelo_rf.fit(X_train, y_train)
 
                 # Modelo Regresion logistica:
-                # Creación del modelo:
                 reg_log = LogisticRegression(max_iter=10000)
                 reg_log.fit(X_train, y_train)
+
 
                 # Modelo XGBoost
                 xgb = XGBClassifier(n_jobs=-1, n_estimators=30, random_state=1234)
@@ -245,13 +245,17 @@ if choice == "Modelaje":
                 modelos = [modelo_rf, reg_log, xgb]
                 results = []
                 for model in modelos:
-                    pred = model.predict(X_test)
-                    accuracy = round(accuracy_score(y_test, pred) * 100, 2)
-                    precision = round(precision_score(y_test, pred, average='macro'), 3)
-                    recall = round(recall_score(y_test, pred, average='macro'), 4)
-                    f1 = round(f1_score(y_test, pred, average='macro'), 4)
-                    results.append({'Model': model.__class__.__name__, 'Accuracy': accuracy,
-                                    'Precision': precision, 'Recall': recall, 'F1': f1})
+                    if len(unique_classes) > 2 and model.__class__.__name__ == "LogisticRegression":
+                        st.warning("La variable objetivo tiene más de 2 clases, por lo que no se ejecutará el modelo de regresión logística")
+                        predictions = [0] * len(X_test)
+                    else:
+                        pred = model.predict(X_test)
+                        accuracy = round(accuracy_score(y_test, pred) * 100, 2)
+                        precision = round(precision_score(y_test, pred, average='macro'), 3)
+                        recall = round(recall_score(y_test, pred, average='macro'), 4)
+                        f1 = round(f1_score(y_test, pred, average='macro'), 4)
+                        results.append({'Model': model.__class__.__name__, 'Accuracy': accuracy,
+                                        'Precision': precision, 'Recall': recall, 'F1': f1})
                 comparacion = pd.DataFrame(results)
                 st.subheader("Comparación entre los modelos")
                 st.write(comparacion)
