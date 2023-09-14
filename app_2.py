@@ -10,6 +10,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score, f1_score, roc_curve, auc
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
+from xgboost import XGBClassifier
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
@@ -236,8 +237,12 @@ if choice == "Modelaje":
                 reg_log = LogisticRegression(max_iter=10000)
                 reg_log.fit(X_train, y_train)
 
+                # Modelo XGBoost
+                xgb = XGBClassifier(n_jobs=-1, n_estimators=30, random_state=1234)
+                xgb.fit(X_train, y_train)
+
                 # Comparación de los dos modelos:
-                modelos = [modelo_rf, reg_log]
+                modelos = [modelo_rf, reg_log, xgb]
                 results = []
                 for model in modelos:
                     pred = model.predict(X_test)
@@ -256,7 +261,7 @@ if choice == "Modelaje":
                 best_model_type = comparacion_sorted.iloc[0]['Model']
                 best_accuracy = comparacion_sorted.iloc[0]['Accuracy']
                 st.write("**Mejor modelo basado en accuracy:**", best_model_type)
-                st.subheader('Resultados del modelo:')
+                st.subheader('Resultados del mejor modelo:')
 
                 # Redefinimos default_model basados en el mejor modelo
                 if best_model_type == "RandomForestClassifier":
@@ -296,6 +301,25 @@ if choice == "Modelaje":
                                                                     ascending=False).head(20).style.background_gradient()
                     st.write("**Variables más importantes:**")
                     st.write(var_imp2)
+                elif best_model_type == "XGBClassifier":
+                    default_model = xgb
+                    # Evaluacion del modelo:
+                    pred3 = xgb.predict(X_test)
+                    eval_model(y_test, pred3)
+
+                    # Lista de variables más importantes:
+                    feature_importances3 = xgb.feature_importances_
+                    imp3 = {}
+                    for i in range(len(X_train.columns)):
+                        imp3[X_train.columns[i]] = [feature_importances3[i]]
+                    var_imp3 = pd.DataFrame.from_dict(imp3,
+                                                      orient="index",
+                                                      columns=["Importance"]
+                                                      ).sort_values("Importance",
+                                                                    ascending=False).head(
+                        20).style.background_gradient()
+                    st.write("**Variables más importantes:**")
+                    st.write(var_imp3)
 
                 # Hacemos tuneo de hiperparámetros para el mejor modelo:
                 if optimize_hyperparams:
@@ -327,12 +351,26 @@ if choice == "Modelaje":
 
                         best_hyperparameters_lr = grid_search_lr.best_params_
 
-                        # Create and train the final Logistic Regression model with the best hyperparameters
                         best_model = LogisticRegression(**best_hyperparameters_lr, max_iter=10000, random_state=123)
                         best_model.fit(X_train, y_train)
 
-                    pred3 = best_model.predict(X_test)
-                    eval_model(y_test, pred3)
+                    elif best_model_type == "XGBClassifier":
+                        param_grid_xgb = {
+                            'n_estimators': [10, 50, 100],
+                            'max_depth': [3, 7],
+                            'learning_rate': [0.01, 0.1, 0.2],
+                            'subsample': [0.8, 1.0]
+                        }
+                        grid_search_xgb = GridSearchCV(xgb, param_grid=param_grid_xgb, cv=5, n_jobs=-1)
+                        grid_search_xgb.fit(X_train, y_train)
+                        best_hyperparameters_lr = grid_search_xgb.best_params_
+
+                        best_model = XGBClassifier(**best_hyperparameters_lr, random_state=123)
+                        best_model.fit(X_train, y_train)
+
+                    pred4 = best_model.predict(X_test)
+                    eval_model(y_test, pred4)
+
 
                 if not optimize_hyperparams:
                     best_model = default_model
@@ -406,8 +444,6 @@ if choice == "Generar nuevas predicciones":
 
     else:
         st.warning('Para generar nuevas predicciones, debes ejecutar el modelado')
-
-
 
 
 
