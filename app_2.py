@@ -100,17 +100,22 @@ def normalizar_dataset(dataset):
     dataset[variables_numericas.columns] = scaler.fit_transform(variables_numericas)
 
     return dataset
+
+label_mapping = {}
 def label_encoding(dataset):
-    label_encoder = LabelEncoder()
-    for columna in dataset.select_dtypes(include='category').columns.difference(['type']):
+    # Generamos el label encoding para las columnas tipo categoricas u objeto:
+    for columna in dataset.select_dtypes(include=['category', 'object']).columns.difference(['type']):
+        label_encoder = LabelEncoder()
         dataset[columna] = label_encoder.fit_transform(dataset[columna])
+        # vamos guardando para cada categoría su valor original y el encoded en un diccionario
+        label_mapping[columna] = dict(zip(label_encoder.classes_, label_encoder.transform(label_encoder.classes_)))
+
+    # Nos interesa que la key del diccionario sea el valor encoded, por lo que invertimos el orden
+    lab_map_rev = {outer_key: {str(v): str(k) for k, v in inner_dict.items()} for outer_key, inner_dict in label_mapping.items()}
+    st.session_state.lab_map_rev = lab_map_rev
 
     return dataset
-def obtener_columnas_orden_jerarquico(dataset):
-    columnas_categoricas = dataset.select_dtypes(include='category').columns.tolist()
-    columnas_orden_jerarquico = st.multiselect('Elige las variables con un orden jerárquico', columnas_categoricas)
 
-    return columnas_orden_jerarquico
 def verificar_desbalanceo(dataset, variable_objetivo):
     conteo_clases = dataset[variable_objetivo].value_counts()
     porcentaje_menor_clase = (conteo_clases.min() / conteo_clases.sum()) * 100
@@ -149,16 +154,14 @@ if choice == "Preprocesado":
                 st.warning("Respuesta no válida. Por favor, selecciona 'Sí' o 'No'.")
 
             st.subheader("Encoding")
-            columnas_orden_jerarquico = obtener_columnas_orden_jerarquico(df_normalizado)
             st.session_state.df_clean = label_encoding(df_normalizado)
-            if columnas_orden_jerarquico:
-                st.session_state.df_clean[columnas_orden_jerarquico] = df_clean[columnas_orden_jerarquico].astype('category')
             st.dataframe(st.session_state.df_clean)
 
             st.subheader("Checkear desbalanceo")
             desbalanceo = verificar_desbalanceo(st.session_state.df_clean, st.session_state.target)
             if desbalanceo:
                 st.warning("El dataset sufre de desbalanceo en la variable objetivo.")
+
             else:
                 st.success("El dataset no sufre de desbalanceo en la variable objetivo.")
     else:
@@ -166,15 +169,13 @@ if choice == "Preprocesado":
 
 # Función para evaluación de los modelos:
 
-def eval_model(y_real, y_pred):
+def eval_model(y_real, y_pred, n_classes):
     # Calcular las métricas
     confusion = confusion_matrix(y_real, y_pred)
     accuracy = accuracy_score(y_real, y_pred)
     precision = round(precision_score(y_real, y_pred, average='macro'), 3)
     recall = round(recall_score(y_real, y_pred, average='macro'), 3)
     f1 = round(f1_score(y_real, y_pred, average='macro'), 3)
-    false_positive_rate, recall, thresholds = roc_curve(y_real, y_pred)
-    roc_auc = auc(false_positive_rate, recall)
 
     # Mostrar los resultados de la evaluación del modelo
     st.write('Confusion Matrix:')
@@ -183,17 +184,21 @@ def eval_model(y_real, y_pred):
     st.write('Precision:', precision)
     st.write('Recall:', recall)
     st.write('F1 Score:', f1)
-    st.write('AUC:', roc_auc)
 
-    # ROC curve
-    plt.plot(false_positive_rate, recall, 'b')
-    plt.plot([0, 1], [0, 1], 'r--')
-    plt.title('ROC Curve')
-    st.pyplot(plt)
+    if n_classes == 2:
+        false_positive_rate, recall, thresholds = roc_curve(y_real, y_pred)
+        roc_auc = auc(false_positive_rate, recall)
+        st.write('AUC:', roc_auc)
+        # ROC curve
+        plt.plot(false_positive_rate, recall, 'b')
+        plt.plot([0, 1], [0, 1], 'r--')
+        plt.title('ROC Curve')
+        st.pyplot(plt)
 
 
 predictions = None
 download_button_pressed = False
+best_model = None
 if choice == "Modelaje":
     st.title("Modelado y predicciones")
     if df is not None:
@@ -247,7 +252,6 @@ if choice == "Modelaje":
                 for model in modelos:
                     if len(unique_classes) > 2 and model.__class__.__name__ == "LogisticRegression":
                         st.warning("La variable objetivo tiene más de 2 clases, por lo que no se ejecutará el modelo de regresión logística")
-                        predictions = [0] * len(X_test)
                     else:
                         pred = model.predict(X_test)
                         accuracy = round(accuracy_score(y_test, pred) * 100, 2)
@@ -273,7 +277,7 @@ if choice == "Modelaje":
                     # Evaluacion del modelo
 
                     pred1 = modelo_rf.predict(X_test)
-                    eval_model(y_test, pred1)
+                    eval_model(y_test, pred1, len(unique_classes))
 
                     # Lista de variables más importantes:
                     feature_importances1 = modelo_rf.feature_importances_
@@ -291,7 +295,7 @@ if choice == "Modelaje":
                     default_model = reg_log
                     # Evaluacion del modelo:
                     pred2 = reg_log.predict(X_test)
-                    eval_model(y_test, pred2)
+                    eval_model(y_test, pred2, len(unique_classes))
 
                     # Lista de variables más importantes:
                     feature_importances2 = abs(reg_log.coef_[0])
@@ -305,11 +309,12 @@ if choice == "Modelaje":
                                                                     ascending=False).head(20).style.background_gradient()
                     st.write("**Variables más importantes:**")
                     st.write(var_imp2)
+
                 elif best_model_type == "XGBClassifier":
                     default_model = xgb
                     # Evaluacion del modelo:
                     pred3 = xgb.predict(X_test)
-                    eval_model(y_test, pred3)
+                    eval_model(y_test, pred3, len(unique_classes))
 
                     # Lista de variables más importantes:
                     feature_importances3 = xgb.feature_importances_
@@ -373,16 +378,21 @@ if choice == "Modelaje":
                         best_model.fit(X_train, y_train)
 
                     pred4 = best_model.predict(X_test)
-                    eval_model(y_test, pred4)
-
+                    eval_model(y_test, pred4, len(unique_classes))
 
                 if not optimize_hyperparams:
                     best_model = default_model
 
+                st.session_state.best_model = best_model
+
                 # predecir los labels para el dataset de predictores (los datos que desconoce el usuario)
+                label_mapping = st.session_state.lab_map_rev
                 pred_final = best_model.predict(data_pred)
                 predictions = data_pred.copy()
-                predictions['Predictions'] = pred_final
+                predictions[target] = pred_final
+                for column in label_mapping:
+                    predictions[column] = predictions[column].astype(str).map(label_mapping[column])
+
                 st.subheader("Predicciones:")
                 st.write(predictions)
 
@@ -419,6 +429,7 @@ if choice == "Generar nuevas predicciones":
     if 'predictions' in st.session_state:
         st.title("Generar nuevas predicciones")
         target = st.session_state.target
+        best_model = st.session_state.best_model
         predictions_file2 = st.file_uploader("**Subir un dataset cuyos outputs desconozcas para generar predicciones**")
         if predictions_file2:
             pred2 = pd.read_csv(predictions_file2, index_col=None)
@@ -437,6 +448,7 @@ if choice == "Generar nuevas predicciones":
         #Volvemos a separar el dataset de predicciones ya limpio
         data_pred2 = df_clean2[df_clean2['type'] == 'pred2']
         data_pred2.drop('type', axis=1, inplace=True)
+        data_pred2.drop(target, axis=1, inplace=True)
 
 
         st.write("Dataset limpio y transformado para generar predicciones:")
@@ -444,17 +456,34 @@ if choice == "Generar nuevas predicciones":
 
         #Generar predicciones:
         if st.button('Generar predicciones'):
-            st.write("Hola")
+            label_mapping = st.session_state.lab_map_rev
+            pred_nueva = best_model.predict(data_pred2)
+            predict2 = data_pred2.copy()
+            predict2[target] = pred_nueva
+            for column in label_mapping:
+                predict2[column] = predict2[column].astype(str).map(label_mapping[column])
+
+            st.subheader("Predicciones:")
+            st.write(predict2)
+
+            # Guardamos predicciones en session state
+            st.session_state.predict2 = predict2
+
+            # Boton para descargar las predicciones en Excel
+            if 'predict2' in st.session_state:
+                excel_file = BytesIO()
+                # Guardamos las predicciones en el objeto creado
+                st.session_state.predict2.to_excel(excel_file, index=False)
+                # Creamos un link para que el usuario seleccione donde guardar
+                if st.download_button(
+                        label="Descargar predicciones",
+                        data=excel_file.getvalue(),
+                        file_name="predict2.xlsx",
+                        key="predictions_download",
+                        help="Haz clic para descargar las predicciones en formato XLSX"
+                ):
+                    st.success("Las predicciones se descargaron correctamente")
 
     else:
         st.warning('Para generar nuevas predicciones, debes ejecutar el modelado')
 
-
-
-
-if choice == "Descargar modelo":
-    if df is not None:
-        with open('best_model.pkl', 'rb') as f:
-            st.download_button('Download Model', f, file_name="best_model.pkl")
-    else:
-        st.warning("Antes de ejecutar el modelado, debes cargar el dataset")
