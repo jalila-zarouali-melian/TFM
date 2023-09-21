@@ -1,18 +1,10 @@
-from streamlit_pandas_profiling import st_profile_report
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
-from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
-from io import BytesIO
 import seaborn as sns
 import os
 from pandasai.llm.openai import OpenAI
 from pandasai import PandasAI
-import matplotlib.pyplot as plt
-import matplotlib
 from streamlit_option_menu import option_menu
 from operator import index
-import streamlit as st
 import numpy as np
 import seaborn as sns
 import plotly.express as px
@@ -47,13 +39,10 @@ from io import StringIO
 from langchain.vectorstores import FAISS
 from langchain.chains import RetrievalQA
 from langchain.chat_models import ChatOpenAI
-from langchain.retrievers import SVMRetriever
-from langchain.chains import QAGenerationChain
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 from langchain.callbacks.base import CallbackManager
-from langchain.embeddings import HuggingFaceEmbeddings
 
 
 
