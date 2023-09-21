@@ -1,0 +1,8 @@
+# Directorios y archivos relacionados con el entorno virtual de Python
+venv/
+
+# Archivos específicos de macOS
+.DS_Store
+
+# Directorios y archivos relacionados con IntelliJ IDEA
+.idea/
