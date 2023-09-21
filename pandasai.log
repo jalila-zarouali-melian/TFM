@@ -1697,3 +1697,147 @@ result = analyze_data(dfs)
         ```
 2023-09-21 00:40:00 [INFO] Answer: {'type': 'text', 'value': 'Clase del pasajero (1 = Primera clase, 2 = Segunda clase, 3 = Tercera clase)'}
 2023-09-21 00:40:00 [INFO] Executed in: 17.88038206100464s
+2023-09-21 05:04:24 [INFO] Question: responde en español, QUE SIGNIFICA LA VARIABLE PCCLASS
+2023-09-21 05:04:24 [INFO] Running PandasAI with openai LLM...
+2023-09-21 05:04:24 [INFO] Prompt ID: 278c1734-f16c-44a5-823f-dfab7012b89b
+2023-09-21 05:04:37 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    pclass_meaning = {
+        1: "Primera clase",
+        2: "Segunda clase",
+        3: "Tercera clase"
+    }
+    
+    # Analyze
+    pclass = df['Pclass'].unique()
+    pclass_description = [pclass_meaning.get(p) for p in pclass]
+    
+    # Output
+    return {"type": "text", "value": f"La variable Pclass representa la clase del pasajero en el Titanic. Los valores posibles son: {', '.join(pclass_description)}."}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-21 05:04:37 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    pclass_meaning = {(1): 'Primera clase', (2): 'Segunda clase', (3): 'Tercera clase'}
+    pclass = df['Pclass'].unique()
+    pclass_description = [pclass_meaning.get(p) for p in pclass]
+    return {'type': 'text', 'value': f"La variable Pclass representa la clase del pasajero en el Titanic. Los valores posibles son: {', '.join(pclass_description)}."}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-21 05:04:37 [INFO] Answer: {'type': 'text', 'value': 'La variable Pclass representa la clase del pasajero en el Titanic. Los valores posibles son: Tercera clase, Primera clase, Segunda clase.'}
+2023-09-21 05:04:37 [INFO] Executed in: 12.978041172027588s
+2023-09-21 05:04:50 [INFO] Question: responde en español, HAZME LA MEDIA DE LA COLUMNA AGE
+2023-09-21 05:04:50 [INFO] Running PandasAI with openai LLM...
+2023-09-21 05:04:50 [INFO] Prompt ID: 10d3b726-c23e-4860-a3e9-f130f7e890e3
+2023-09-21 05:05:00 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Calculate the average of the 'Age' column
+    average_age = dfs[0]['Age'].mean()
+    
+    # Return the result as a dictionary
+    return {"type": "number", "value": average_age}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-21 05:05:00 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    average_age = dfs[0]['Age'].mean()
+    return {'type': 'number', 'value': average_age}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-21 05:05:00 [INFO] Answer: {'type': 'number', 'value': 29.69911764705882}
+2023-09-21 05:05:00 [INFO] Executed in: 9.58067512512207s
+2023-09-21 05:05:27 [INFO] Question: responde en español, QUE SIGNIFICA LA VARIABLE EMBARKED
+2023-09-21 05:05:27 [INFO] Running PandasAI with openai LLM...
+2023-09-21 05:05:27 [INFO] Prompt ID: ec0208cf-d17f-4641-8ff5-65d3283860b7
+2023-09-21 05:05:39 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    embarked_values = df['Embarked'].unique()
+    
+    # Analyze
+    embarked_meaning = "La variable 'Embarked' indica el puerto de embarque del pasajero en el Titanic."
+    
+    # Output
+    return {"type": "text", "value": embarked_meaning}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-21 05:05:39 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    embarked_values = df['Embarked'].unique()
+    embarked_meaning = "La variable 'Embarked' indica el puerto de embarque del pasajero en el Titanic."
+    return {'type': 'text', 'value': embarked_meaning}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-21 05:05:39 [INFO] Answer: {'type': 'text', 'value': "La variable 'Embarked' indica el puerto de embarque del pasajero en el Titanic."}
+2023-09-21 05:05:39 [INFO] Executed in: 11.44716477394104s
