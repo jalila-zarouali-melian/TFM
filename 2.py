@@ -5,6 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
 from io import BytesIO
 import seaborn as sns
+from dotenv import load_dotenv
 import os
 from pandasai.llm.openai import OpenAI
 from pandasai import PandasAI
@@ -38,22 +39,6 @@ from sklearn.metrics import mean_squared_error
 from sklearn.impute import SimpleImputer
 from sklearn.metrics import mean_squared_error, r2_score
 import joblib
-import os
-import PyPDF2
-import random
-import itertools
-import streamlit as st
-from io import StringIO
-from langchain.vectorstores import FAISS
-from langchain.chains import RetrievalQA
-from langchain.chat_models import ChatOpenAI
-from langchain.retrievers import SVMRetriever
-from langchain.chains import QAGenerationChain
-from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
-from langchain.callbacks.base import CallbackManager
-from langchain.embeddings import HuggingFaceEmbeddings
 
 
 
@@ -71,7 +56,7 @@ def streamlit_menu(example=2):
     if example == 2:
         selected = option_menu(
             menu_title=None,
-            options=["Ciencia de Datos", "Análisis de datos"],
+            options=["Data Science", "Data Analyst"],
             icons=["house", "book"],
             menu_icon="cast",
             orientation="horizontal",
@@ -82,9 +67,9 @@ selected = streamlit_menu(example=2)
 
 # Verificar si 'selected' no es None antes de intentar usarlo
 if selected:
-    st.title(f"Modo {selected}")
+    st.title(f"You have selected {selected}")
 
-if selected == "Ciencia de Datos":
+if selected == "Data Science":
     # Aquí creamos un nuevo submenú cuando se selecciona "Science"
     sub_selected = option_menu(
         menu_title=None,
@@ -94,6 +79,8 @@ if selected == "Ciencia de Datos":
     )
 
     if sub_selected == "simple":
+        st.write("You selected the 'simple' option")
+
 
         @st.cache_data()
         def load_dataframe():
@@ -105,11 +92,11 @@ if selected == "Ciencia de Datos":
 
         with st.sidebar:
             st.image("https://www.onepointltd.com/wp-content/uploads/2020/03/inno2.png")
-            st.title("Automodelador")
+            st.title("No Code App.1")
             choice = st.radio("Navigation", ["Subir ficheros", "Análisis descriptivo simple","Modelaje"
                                               ])
             st.info(
-                "Esta aplicación automatiza el proceso de creación de un modelo.")
+                "Esta aplicación automatiza el proceso de creación de un modelo de predicción de datos para datasets con variables de respuesta binarias.")
 
         if choice == "Subir ficheros":
             st.title("Sube los ficheros")
@@ -244,6 +231,7 @@ if selected == "Ciencia de Datos":
                 )
 
     if sub_selected == "complex":
+        st.write("You selected the 'complex' option")
 
 
         # Definimos las funciones para la carga de los datasets que el usuario quiere utilizar para entrenar el modelo y luego para generar predicciones:
@@ -268,9 +256,9 @@ if selected == "Ciencia de Datos":
         # Creamos el título en el menú lateral y una imagen por efecto visual y definimos las opciónes que el usuario podrá escoger en el menú lateral:
         with st.sidebar:
             st.image("https://www.onepointltd.com/wp-content/uploads/2020/03/inno2.png")
-            st.title("Automodelador")
+            st.title("Automodeladorv.1")
             choice = st.radio("Navigation", ["Subir ficheros", "Análisis descriptivo", "Preprocesado", "Modelaje",
-                                             "Generar nuevas predicciones","Insights"])
+                                             "Generar nuevas predicciones"])
             st.info(
                 "Esta aplicación automatiza el proceso de creación de un modelo de predicción de datos para datasets con variables de respuesta binarias o multiclase.")
 
@@ -295,12 +283,14 @@ if selected == "Ciencia de Datos":
             st.title("Análisis exploratorio")
             if df is not None:
                 st.subheader("Análisis descriptivo simple")
+                # Encontrar columna con más datos missing
                 descriptive = df.describe()
 
                 with st.container():
                     st.markdown("Datos generales por categoría", unsafe_allow_html=True)
                     st.dataframe(descriptive)
 
+                # Información sobre tipos de variables
                 var_types = df.dtypes
                 categorical_vars = sum(var_types == 'object')
                 numerical_vars = sum(var_types != 'object')
@@ -310,16 +300,12 @@ if selected == "Ciencia de Datos":
                     st.write("Cantidad de variables categóricas: ", categorical_vars)
                     st.write('Cantidad de variables numéricas: ', numerical_vars)
 
+                # Heatmap de correlaciones
                 st.subheader("Heatmap de correlaciones")
                 corr = df.select_dtypes(exclude=['object', 'category']).corr()
                 plt.figure(figsize=(10, 8))
                 sns.heatmap(corr)
                 st.pyplot(plt)
-
-                # Almacenando información en session state
-                st.session_state.descriptive = descriptive
-                st.session_state.categorical_vars = categorical_vars
-                st.session_state.numerical_vars = numerical_vars
 
                 # Y le damos la opción al usuario de generar adicionalmente un análisis descriptivo más detallado a través de un botón:
                 st.subheader("Análisis descriptivo detallado")
@@ -344,9 +330,7 @@ if selected == "Ciencia de Datos":
         y_test = None
         data_pred = None
 
-        best_model_type = None
-        best_accuracy = 0
-        comparacion = None
+
         # A continuación definimos funciones que se utilizarán para el preprocesado de los datos:
 
         # Función para convertir los outliers (definidos con un umbral de 3 desviaciones estandar) en datos nulos:
@@ -457,8 +441,6 @@ if selected == "Ciencia de Datos":
             # Esta función la usaremos despues del split train-test, por lo que debemos devolver los valores de X y Y por separado:
             X = df_resampled.drop(columns=[target_column.name])
             Y = df_resampled[target_column.name]
-
-            st.session_state.resampling_done = True  # Agregamos una bandera que indica que el resampling se ha realizado
 
             return X, Y
 
@@ -781,12 +763,6 @@ if selected == "Ciencia de Datos":
             else:
                 st.warning('Antes de ejecutar el modelado, debes cargar el dataset')
 
-            st.session_state.best_model_type = best_model_type
-            st.session_state.best_accuracy = best_accuracy
-            st.session_state.comparacion = comparacion
-
-
-
 
         # Creamos la función para cargar el nuevo dataset para generar nuevas predicciones:
         def load_pred2():
@@ -863,257 +839,46 @@ if selected == "Ciencia de Datos":
                 st.warning('Para generar nuevas predicciones, debes ejecutar el modelado')
 
 
-        if choice == "Insights":
-            def print_insights(best_model_type, best_accuracy, comparacion):
-                best_model_details = comparacion.loc[comparacion['Model'] == best_model_type].iloc[0]
+if selected == "Data Analyst":
+    API_KEY = None
+    st.sidebar.header("Configuración de API Key")
+    api_key_input = st.sidebar.text_input("Ingrese su API Key de OpenAI:")
+    refresh_api_button = st.sidebar.button("Refrescar API Key")
 
-                with open('insights.txt', 'w') as file:
-                    file.write(f"El mejor modelo ha sido el {best_model_type}.\n")
-                    file.write(f"- El accuracy es de {best_accuracy / 100:.2f}\n")
-                    file.write(f"- La precisión es de {best_model_details['Precision']:.3f}\n")
-                    file.write(f"- El recall es de {best_model_details['Recall']:.3f}\n")
-                    file.write(f"- El puntaje F1 es de {best_model_details['F1']:.3f}\n")
+    if refresh_api_button:
+        if api_key_input:
+            st.sidebar.write("API Key actualizada con éxito")
+            API_KEY = api_key_input
+        else:
+            st.sidebar.write("Por favor, ingrese una API Key válida.")
 
-                    # Incluyendo datos del análisis descriptivo
-                    if 'descriptive' in st.session_state:
+    temperature = st.slider("Temperatura", 0.0, 1.0)
+    model_name = st.selectbox("Modelo de OpenAI", ["gpt-3", "curie", "davinci"])
 
-                        file.write(f"- Resumen estadístico:\n{st.session_state.descriptive}\n")
+    llm = OpenAI(api_token=API_KEY, temperature=temperature, model_name=model_name)
+    pandas_ai = PandasAI(llm)
+    uploaded_file = st.file_uploader("Upload a CSV file for analysis", type=['csv'])
 
+if uploaded_file is not None:
+    df = pd.read_csv(uploaded_file)
+    st.session_state.df = df
+    st.write(df.head(3))
 
-            print_insights(st.session_state.best_model_type, st.session_state.best_accuracy,
-                           st.session_state.comparacion)
+    prompt = st.text_area("Enter your prompt:")
 
-            if __name__ == "__main__":
-                def cargar_documentos(archivos):
-                    texto_total = ""
-                    for ruta_archivo in archivos:
-                        extension_archivo = os.path.splitext(ruta_archivo)[1]
-                        with open(ruta_archivo, 'rb') as file:
-                            if extension_archivo == ".pdf":
-                                lector_pdf = PyPDF2.PdfReader(file)
-                                texto = ""
-                                for pagina in lector_pdf.pages:
-                                    texto += pagina.extract_text()
-                                texto_total += texto
-                            elif extension_archivo == ".txt":
-                                texto = file.read().decode("utf-8")
-                                texto_total += texto
-                            else:
-                                st.warning('Proporciona un archivo en formato PDF o TXT.', icon="⚠️")
-                    return texto_total
-
-
-                def crear_recuperador(embeddings, fragmentos):
-                    try:
-                        almacen_vector = FAISS.from_texts(fragmentos, embeddings)
-                    except (IndexError, ValueError) as e:
-                        st.error(f"Hubo un problema creando el almacenamiento de vectores: {e}")
-                        return
-                    recuperador = almacen_vector.as_retriever(k=5)
-                    return recuperador
-
-
-                @st.cache_resource
-                def dividir_textos(texto, tamano_fragmento, solapamiento):
-                    divisor_texto = RecursiveCharacterTextSplitter(chunk_size=tamano_fragmento,
-                                                                   chunk_overlap=solapamiento)
-                    fragmentos = divisor_texto.split_text(texto)
-                    if not fragmentos:
-                        return None
-                    return fragmentos
-
-
-                def principal():
-                    st.title("Analisis del Modelo con inteligencia artificial")
-
-                    if 'llave_api_openai' not in st.session_state:
-                        llave_api_openai = st.text_input(
-                            'Introduce tu llave API de OpenAI',
-                            value="", placeholder="Introduce tu llave API que inicia con sk-", type="password")
-                        if llave_api_openai:
-                            st.session_state.llave_api_openai = llave_api_openai
-                            os.environ["OPENAI_API_KEY"] = llave_api_openai
-                        else:
-                            return
-
-                    archivos_subidos = ["insights.txt"]
-
-                    # Aquí se elimina la necesidad de verificar una carga manual de archivos
-                    texto_cargado = cargar_documentos(archivos_subidos)
+    if st.button("Generate"):
+        if prompt:
+            # Remove or comment the following line for production
+            # with pdb.set_trace():
+            st.write(pandas_ai.run(df, prompt=prompt))
+        else:
+            st.warning("Please enter a prompt.")
 
 
 
-                    fragmentos = dividir_textos(texto_cargado, tamano_fragmento=1000, solapamiento=0)
-
-                    if fragmentos is None:
-                        st.error("La división del texto no fue exitosa.")
-                        st.stop()
 
 
-                    embeddings = OpenAIEmbeddings()
-                    recuperador = crear_recuperador(embeddings, fragmentos)
-
-                    manejador_callback = StreamingStdOutCallbackHandler()
-                    gestor_callback = CallbackManager([manejador_callback])
-
-                    chat_openai = ChatOpenAI(streaming=True, callback_manager=gestor_callback, verbose=True,
-                                             temperature=0)
-                    sistema_qa = RetrievalQA.from_chain_type(llm=chat_openai, retriever=recuperador,
-                                                             chain_type="stuff",
-                                                             verbose=True)
-
-                    pregunta_usuario = ""
-                    if st.button("Generar Insights"):
-                        pregunta_usuario = "Solo tienes estos datos, tienes que intentar DarME INSIGHTS DE UN POSIBLE MODELO  O POSIBLES MEJORAS, además se ha realizado un relleno de datos faltantes con la media"
-
-                    if pregunta_usuario:
-                        respuesta = sistema_qa.run(pregunta_usuario)
-                        st.write(respuesta)
 
 
-                principal()
 
 
-if selected == "Análisis de datos":
-
-    sub_selected = option_menu(
-        menu_title=None,
-        options=["Analizar Dataframe", "Analizar PDF"],
-        # default_index=0,  # Removido para evitar el error
-        orientation="horizontal",
-    )
-    if sub_selected == "Analizar Dataframe":
-        # Inicializa API_KEY en el session_state si no existe
-        if "API_KEY" not in st.session_state:
-            st.session_state.API_KEY = ""
-
-        st.sidebar.header("Configuración de API Key")
-        api_key_input = st.sidebar.text_input("Ingrese su API Key de OpenAI:", type="password")
-        refresh_api_button = st.sidebar.button("Refrescar API Key")
-
-        if refresh_api_button:
-            if api_key_input:
-                st.sidebar.write("API Key actualizada con éxito")
-                st.session_state.API_KEY = api_key_input
-            else:
-                st.sidebar.write("Por favor, ingrese una API Key válida.")
-
-        if not st.session_state.API_KEY:
-            st.sidebar.write("No se ha proporcionado una API Key válida.")
-            # Podrías optar por detener la ejecución aquí si no hay una API Key válida
-            # return
-
-        temperature = st.slider("Temperatura", 0.0, 1.0)
-        model_name = st.selectbox("Modelo de OpenAI", ["gpt-3", "curie", "davinci"])
-
-        llm = OpenAI(api_token=st.session_state.API_KEY, temperature=temperature, model_name=model_name)
-        pandas_ai = PandasAI(llm)
-        uploaded_file = st.file_uploader("Suba un archivo CSV para análisis", type=['csv'])
-
-    if uploaded_file is not None:
-        df = pd.read_csv(uploaded_file)
-        st.session_state.df = df
-        st.write(df.head(3))
-
-        prompt = st.text_area("Ingrese su prompt:")
-
-        if st.button("Generar"):
-            if prompt:
-                full_prompt = f"responde en español, {prompt}"
-                # Ahora pasamos full_prompt al método que genera la respuesta
-                st.write(pandas_ai.run(df, prompt=full_prompt))
-
-            else:
-                st.warning("Por favor, ingrese un prompt.")
-
-
-    if sub_selected == "Analizar PDF":
-        if __name__ == "__main__":
-            def cargar_documentos(archivos):
-                texto_total = ""
-                for ruta_archivo in archivos:
-                    extension_archivo = os.path.splitext(ruta_archivo.name)[1]
-                    if extension_archivo == ".pdf":
-                        lector_pdf = PyPDF2.PdfReader(ruta_archivo)
-                        texto = ""
-                        for pagina in lector_pdf.pages:
-                            texto += pagina.extract_text()
-                        texto_total += texto
-                    elif extension_archivo == ".txt":
-                        lector_txt = StringIO(ruta_archivo.getvalue().decode("utf-8"))
-                        texto = lector_txt.read()
-                        texto_total += texto
-                    else:
-                        st.warning('Proporciona un archivo en formato PDF o TXT.', icon="⚠️")
-                return texto_total
-
-
-            def crear_recuperador(embeddings, fragmentos):
-                try:
-                    almacen_vector = FAISS.from_texts(fragmentos, embeddings)
-                except (IndexError, ValueError) as e:
-                    st.error(f"Hubo un problema creando el almacenamiento de vectores: {e}")
-                    return
-                recuperador = almacen_vector.as_retriever(k=5)
-                return recuperador
-
-
-            @st.cache_resource
-            def dividir_textos(texto, tamano_fragmento, solapamiento):
-                divisor_texto = RecursiveCharacterTextSplitter(chunk_size=tamano_fragmento, chunk_overlap=solapamiento)
-                fragmentos = divisor_texto.split_text(texto)
-                if not fragmentos:
-                    return None
-                return fragmentos
-
-
-            def principal():
-                st.title("Herramienta de Análisis de PDFs")
-
-                if 'llave_api_openai' not in st.session_state:
-                    llave_api_openai = st.text_input(
-                        'Introduce tu llave API de OpenAI',
-                        value="", placeholder="Introduce tu llave API que inicia con sk-",type="password")
-                    if llave_api_openai:
-                        st.session_state.llave_api_openai = llave_api_openai
-                        os.environ["OPENAI_API_KEY"] = llave_api_openai
-                    else:
-                        return
-
-                archivos_subidos = st.file_uploader("Carga un documento PDF o TXT", type=["pdf", "txt"],
-                                                    accept_multiple_files=True)
-
-                if archivos_subidos:
-                    if 'ultimos_archivos_subidos' not in st.session_state or st.session_state.ultimos_archivos_subidos != archivos_subidos:
-                        st.session_state.ultimos_archivos_subidos = archivos_subidos
-
-                    texto_cargado = cargar_documentos(archivos_subidos)
-                    st.write("Los documentos han sido cargados y procesados.")
-
-                    fragmentos = dividir_textos(texto_cargado, tamano_fragmento=1000, solapamiento=0)
-                    if fragmentos is None:
-                        st.error("La división del texto no fue exitosa.")
-                        st.stop()
-                    else:
-                        st.info("Procesando documento ...")
-
-                    embeddings = OpenAIEmbeddings()
-                    recuperador = crear_recuperador(embeddings, fragmentos)
-
-                    manejador_callback = StreamingStdOutCallbackHandler()
-                    gestor_callback = CallbackManager([manejador_callback])
-
-                    chat_openai = ChatOpenAI(streaming=True, callback_manager=gestor_callback, verbose=True,
-                                             temperature=0)
-                    sistema_qa = RetrievalQA.from_chain_type(llm=chat_openai, retriever=recuperador, chain_type="stuff",
-                                                             verbose=True)
-
-                    st.write("Preparado")
-
-                    pregunta_usuario = st.text_input("Escribe tu pregunta aquí:")
-                    if pregunta_usuario:
-                        respuesta = sistema_qa.run(pregunta_usuario)
-                        st.write(respuesta)
-
-
-            principal()

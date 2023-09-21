@@ -1,0 +1,1843 @@
+2023-09-20 22:04:50 [INFO] Question: quien tiene mas probabilidad de sobrevivir?
+2023-09-20 22:04:50 [INFO] Running PandasAI with openai LLM...
+2023-09-20 22:04:50 [INFO] Prompt ID: 316a07b9-967b-4eb4-b5d7-1bac0d0e25d1
+2023-09-20 22:04:50 [INFO] error_code=invalid_api_key error_message='Incorrect API key provided: sk-Zq5IL***************************************WNTV. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-09-20 22:39:37 [INFO] Question: quien es mas probable que sobreviva, hombres o mujeres?
+2023-09-20 22:39:37 [INFO] Running PandasAI with openai LLM...
+2023-09-20 22:39:37 [INFO] Prompt ID: 2d970d16-0422-4b0e-8ae9-6620eb4278b6
+2023-09-20 22:39:38 [INFO] error_code=invalid_api_key error_message='Incorrect API key provided: sk-Zq5IL***************************************WNTV. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-09-20 22:41:34 [INFO] Question: QUIEN ES MAS PROBABLE QUE SOBREVIVA? HOMBRES O MUJERES?
+2023-09-20 22:41:34 [INFO] Running PandasAI with openai LLM...
+2023-09-20 22:41:34 [INFO] Prompt ID: f34b5431-848a-4eac-8dcf-40bad68eac98
+2023-09-20 22:41:34 [INFO] error_code=invalid_api_key error_message='Incorrect API key provided: sk-Zq5IL***************************************WNTV. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-09-20 22:44:26 [INFO] Question: MEDIA DE SURVIVED
+2023-09-20 22:44:26 [INFO] Running PandasAI with openai LLM...
+2023-09-20 22:44:26 [INFO] Prompt ID: 8e0e8451-0104-43ad-a5af-5cec15d13b45
+2023-09-20 22:44:27 [INFO] error_code=invalid_api_key error_message='Incorrect API key provided: sk-Zq5IL***************************************WNTV. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-09-20 22:44:30 [INFO] Question: MEDIA DE SURVIVED
+2023-09-20 22:44:30 [INFO] Running PandasAI with openai LLM...
+2023-09-20 22:44:30 [INFO] Prompt ID: bd750908-6778-441e-8e41-b4af007cd020
+2023-09-20 22:44:31 [INFO] error_code=invalid_api_key error_message='Incorrect API key provided: sk-Zq5IL***************************************WNTV. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-09-20 22:47:45 [INFO] Question: SURVIVED MEAN
+2023-09-20 22:47:45 [INFO] Running PandasAI with openai LLM...
+2023-09-20 22:47:45 [INFO] Prompt ID: 4e15b57e-4303-4ec6-a884-bf89277623b3
+2023-09-20 22:47:45 [INFO] error_code=invalid_api_key error_message='Incorrect API key provided: sk-Zq5IL***************************************WNTV. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-09-20 22:50:08 [INFO] Question: SURVIVED MEAN
+2023-09-20 22:50:08 [INFO] Running PandasAI with openai LLM...
+2023-09-20 22:50:08 [INFO] Prompt ID: 26ad03d1-e6d2-40a6-94b7-cadeffaef042
+2023-09-20 22:50:09 [INFO] error_code=invalid_api_key error_message='Incorrect API key provided: sk-Zq5IL***************************************WNTV. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-09-20 22:50:50 [INFO] Question: SURVIVED MEAN
+2023-09-20 22:50:50 [INFO] Running PandasAI with openai LLM...
+2023-09-20 22:50:50 [INFO] Prompt ID: d6505946-efd5-4a5d-b660-62ef97d90fe8
+2023-09-20 22:50:51 [INFO] error_code=invalid_api_key error_message='Incorrect API key provided: sk-Zq5IL***************************************WNTV. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-09-20 22:50:56 [INFO] Question: SURVIVED MEAN
+2023-09-20 22:50:56 [INFO] Running PandasAI with openai LLM...
+2023-09-20 22:50:56 [INFO] Prompt ID: 53cc1a10-b190-4ad3-9379-860e1a10c6be
+2023-09-20 22:50:56 [INFO] error_code=invalid_api_key error_message='Incorrect API key provided: sk-Zq5IL***************************************WNTV. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-09-20 22:53:27 [INFO] Question: SURVIVED MEAN
+2023-09-20 22:53:27 [INFO] Running PandasAI with openai LLM...
+2023-09-20 22:53:27 [INFO] Prompt ID: de335799-ff53-49c4-bd68-0168631afe4f
+2023-09-20 22:53:37 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Process
+    survived_mean = dfs[0]['Survived'].mean()
+    
+    # Output
+    return {"type": "number", "value": survived_mean}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-20 22:53:37 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    survived_mean = dfs[0]['Survived'].mean()
+    return {'type': 'number', 'value': survived_mean}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 22:53:37 [INFO] Answer: {'type': 'number', 'value': 0.3838383838383838}
+2023-09-20 22:53:37 [INFO] Executed in: 10.41847014427185s
+2023-09-20 22:54:24 [INFO] Question: QUE SEXO ES MAS PROBABLE QUE SOBREVIVA Y POR QUE
+2023-09-20 22:54:24 [INFO] Running PandasAI with openai LLM...
+2023-09-20 22:54:24 [INFO] Prompt ID: c6df42b0-4cf4-4d94-9ccd-134d81cddaf2
+2023-09-20 22:54:39 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    
+    # Group by sex and calculate the survival rate
+    survival_rate_by_sex = df.groupby('Sex')['Survived'].mean()
+    
+    # Get the sex with the highest survival rate
+    most_probable_survival_sex = survival_rate_by_sex.idxmax()
+    
+    # Get the reason why the sex is more likely to survive
+    reason_for_survival = "Women are more likely to survive because they were given priority during the evacuation process."
+    
+    # Return the result
+    result = {
+        "type": "text",
+        "value": f"The sex that is more likely to survive is {most_probable_survival_sex}. {reason_for_survival}"
+    }
+    
+    return result
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-20 22:54:39 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    survival_rate_by_sex = df.groupby('Sex')['Survived'].mean()
+    most_probable_survival_sex = survival_rate_by_sex.idxmax()
+    reason_for_survival = 'Women are more likely to survive because they were given priority during the evacuation process.'
+    result = {'type': 'text', 'value': f'The sex that is more likely to survive is {most_probable_survival_sex}. {reason_for_survival}'}
+    return result
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 22:54:39 [INFO] Answer: {'type': 'text', 'value': 'The sex that is more likely to survive is female. Women are more likely to survive because they were given priority during the evacuation process.'}
+2023-09-20 22:54:39 [INFO] Executed in: 15.396756887435913s
+2023-09-20 22:54:50 [INFO] Question: QUE SEXO ES MAS PROBABLE QUE SOBREVIVA Y POR QUE
+2023-09-20 22:54:50 [INFO] Running PandasAI with openai LLM...
+2023-09-20 22:54:50 [INFO] Prompt ID: 5ad0af67-ef18-4764-8f62-be952c6100c7
+2023-09-20 22:54:50 [INFO] Using cached response
+2023-09-20 22:54:50 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    
+    # Group by sex and calculate the survival rate
+    survival_rate_by_sex = df.groupby('Sex')['Survived'].mean()
+    
+    # Get the sex with the highest survival rate
+    most_probable_survival_sex = survival_rate_by_sex.idxmax()
+    
+    # Get the reason why the sex is more likely to survive
+    reason_for_survival = "Women are more likely to survive because they were given priority during the evacuation process."
+    
+    # Return the result
+    result = {
+        "type": "text",
+        "value": f"The sex that is more likely to survive is {most_probable_survival_sex}. {reason_for_survival}"
+    }
+    
+    return result
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-20 22:54:50 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    survival_rate_by_sex = df.groupby('Sex')['Survived'].mean()
+    most_probable_survival_sex = survival_rate_by_sex.idxmax()
+    reason_for_survival = 'Women are more likely to survive because they were given priority during the evacuation process.'
+    result = {'type': 'text', 'value': f'The sex that is more likely to survive is {most_probable_survival_sex}. {reason_for_survival}'}
+    return result
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 22:54:50 [INFO] Answer: {'type': 'text', 'value': 'The sex that is more likely to survive is female. Women are more likely to survive because they were given priority during the evacuation process.'}
+2023-09-20 22:54:50 [INFO] Executed in: 0.0035457611083984375s
+2023-09-20 22:54:52 [INFO] Question: QUE SEXO ES MAS PROBABLE QUE SOBREVIVA Y POR QUE
+2023-09-20 22:54:52 [INFO] Running PandasAI with openai LLM...
+2023-09-20 22:54:52 [INFO] Prompt ID: 677dd05b-1b7e-4f73-b46e-5593e110eff7
+2023-09-20 22:54:52 [INFO] Using cached response
+2023-09-20 22:54:52 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    
+    # Group by sex and calculate the survival rate
+    survival_rate_by_sex = df.groupby('Sex')['Survived'].mean()
+    
+    # Get the sex with the highest survival rate
+    most_probable_survival_sex = survival_rate_by_sex.idxmax()
+    
+    # Get the reason why the sex is more likely to survive
+    reason_for_survival = "Women are more likely to survive because they were given priority during the evacuation process."
+    
+    # Return the result
+    result = {
+        "type": "text",
+        "value": f"The sex that is more likely to survive is {most_probable_survival_sex}. {reason_for_survival}"
+    }
+    
+    return result
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-20 22:54:52 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    survival_rate_by_sex = df.groupby('Sex')['Survived'].mean()
+    most_probable_survival_sex = survival_rate_by_sex.idxmax()
+    reason_for_survival = 'Women are more likely to survive because they were given priority during the evacuation process.'
+    result = {'type': 'text', 'value': f'The sex that is more likely to survive is {most_probable_survival_sex}. {reason_for_survival}'}
+    return result
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 22:54:52 [INFO] Answer: {'type': 'text', 'value': 'The sex that is more likely to survive is female. Women are more likely to survive because they were given priority during the evacuation process.'}
+2023-09-20 22:54:52 [INFO] Executed in: 0.005020856857299805s
+2023-09-20 22:54:58 [INFO] Question: QUE SEXO ES MAS PROBABLE QUE SOBREVIVA 
+2023-09-20 22:54:58 [INFO] Running PandasAI with openai LLM...
+2023-09-20 22:54:58 [INFO] Prompt ID: 39a70f08-61dd-4338-8196-181dca04ce69
+2023-09-20 22:55:09 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    survived_by_sex = df.groupby('Sex')['Survived'].mean()
+    result = survived_by_sex.idxmax()
+    return {"type": "text", "value": result}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-20 22:55:09 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    survived_by_sex = df.groupby('Sex')['Survived'].mean()
+    result = survived_by_sex.idxmax()
+    return {'type': 'text', 'value': result}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 22:55:09 [INFO] Answer: {'type': 'text', 'value': 'female'}
+2023-09-20 22:55:09 [INFO] Executed in: 10.778477907180786s
+2023-09-20 22:55:27 [INFO] Question: QUE SEXO ES MAS PROBABLE QUE SOBREVIVA Y EN QUÉ  PORCENTAJE
+2023-09-20 22:55:27 [INFO] Running PandasAI with openai LLM...
+2023-09-20 22:55:27 [INFO] Prompt ID: 33a008b5-be6b-46c7-8ba0-bf6d34d77cf4
+2023-09-20 22:55:42 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    
+    # Group by sex and calculate the survival rate
+    survival_rate = df.groupby('Sex')['Survived'].mean()
+    
+    # Calculate the percentage
+    percentage = survival_rate * 100
+    
+    # Format the result as a string
+    result = "The percentage of survival by sex is:\n"
+    for sex, percent in percentage.items():
+        result += f"{sex}: {percent:.2f}%\n"
+    
+    return {"type": "text", "value": result}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-20 22:55:42 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    survival_rate = df.groupby('Sex')['Survived'].mean()
+    percentage = survival_rate * 100
+    result = 'The percentage of survival by sex is:\n'
+    for sex, percent in percentage.items():
+        result += f'{sex}: {percent:.2f}%\n'
+    return {'type': 'text', 'value': result}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 22:55:42 [INFO] Answer: {'type': 'text', 'value': 'The percentage of survival by sex is:\nfemale: 74.20%\nmale: 18.89%\n'}
+2023-09-20 22:55:42 [INFO] Executed in: 14.309589147567749s
+2023-09-20 22:56:10 [INFO] Question: GIVE ME INSIGHTS ABOUT THIS DATASET
+2023-09-20 22:56:10 [INFO] Running PandasAI with openai LLM...
+2023-09-20 22:56:10 [INFO] Prompt ID: 9a175ffc-0953-4967-9d73-3b256c72d1db
+2023-09-20 22:56:29 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    insights = {}
+
+    # Prepare: Preprocessing and cleaning data if necessary
+    df = dfs[0].copy()
+    df['Age'] = df['Age'].fillna(df['Age'].mean())
+    df['Fare'] = df['Fare'].fillna(df['Fare'].mean())
+
+    # Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    total_passengers = len(df)
+    survived_passengers = df['Survived'].sum()
+    male_passengers = len(df[df['Sex'] == 'male'])
+    female_passengers = len(df[df['Sex'] == 'female'])
+    average_age = df['Age'].mean()
+    average_fare = df['Fare'].mean()
+
+    # Analyze: Conducting the actual analysis
+    insights['Total Passengers'] = total_passengers
+    insights['Survived Passengers'] = survived_passengers
+    insights['Male Passengers'] = male_passengers
+    insights['Female Passengers'] = female_passengers
+    insights['Average Age'] = average_age
+    insights['Average Fare'] = average_fare
+
+    # Output: return a dictionary of insights
+    return insights
+
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-20 22:56:29 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    insights = {}
+    df = dfs[0].copy()
+    df['Age'] = df['Age'].fillna(df['Age'].mean())
+    df['Fare'] = df['Fare'].fillna(df['Fare'].mean())
+    total_passengers = len(df)
+    survived_passengers = df['Survived'].sum()
+    male_passengers = len(df[df['Sex'] == 'male'])
+    female_passengers = len(df[df['Sex'] == 'female'])
+    average_age = df['Age'].mean()
+    average_fare = df['Fare'].mean()
+    insights['Total Passengers'] = total_passengers
+    insights['Survived Passengers'] = survived_passengers
+    insights['Male Passengers'] = male_passengers
+    insights['Female Passengers'] = female_passengers
+    insights['Average Age'] = average_age
+    insights['Average Fare'] = average_fare
+    return insights
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 22:56:29 [INFO] Answer: {'Total Passengers': 891, 'Survived Passengers': 342, 'Male Passengers': 577, 'Female Passengers': 314, 'Average Age': 29.69911764705882, 'Average Fare': 32.204207968574636}
+2023-09-20 22:56:29 [INFO] Executed in: 18.661983013153076s
+2023-09-20 22:56:48 [INFO] Question: GIVE ME A SUMMARY OF  THIS DATASET
+2023-09-20 22:56:48 [INFO] Running PandasAI with openai LLM...
+2023-09-20 22:56:48 [INFO] Prompt ID: c73768cd-c54f-4b6c-95ad-987e8bdc2e92
+2023-09-20 22:56:58 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    summary = dfs[0].describe(include='all').transpose()
+    return {"type": "dataframe", "value": summary}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-20 22:56:58 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    summary = dfs[0].describe(include='all').transpose()
+    return {'type': 'dataframe', 'value': summary}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 22:56:58 [INFO] Answer: {'type': 'dataframe', 'value':              count unique                      top freq       mean         std   min     25%      50%    75%       max
+PassengerId  891.0    NaN                      NaN  NaN      446.0  257.353842   1.0   223.5    446.0  668.5     891.0
+Survived     891.0    NaN                      NaN  NaN   0.383838    0.486592   0.0     0.0      0.0    1.0       1.0
+Pclass       891.0    NaN                      NaN  NaN   2.308642    0.836071   1.0     2.0      3.0    3.0       3.0
+Name           891    891  Braund, Mr. Owen Harris    1        NaN         NaN   NaN     NaN      NaN    NaN       NaN
+Sex            891      2                     male  577        NaN         NaN   NaN     NaN      NaN    NaN       NaN
+Age          714.0    NaN                      NaN  NaN  29.699118   14.526497  0.42  20.125     28.0   38.0      80.0
+SibSp        891.0    NaN                      NaN  NaN   0.523008    1.102743   0.0     0.0      0.0    1.0       8.0
+Parch        891.0    NaN                      NaN  NaN   0.381594    0.806057   0.0     0.0      0.0    0.0       6.0
+Ticket         891    681                   347082    7        NaN         NaN   NaN     NaN      NaN    NaN       NaN
+Fare         891.0    NaN                      NaN  NaN  32.204208   49.693429   0.0  7.9104  14.4542   31.0  512.3292
+Cabin          204    147                  B96 B98    4        NaN         NaN   NaN     NaN      NaN    NaN       NaN
+Embarked       889      3                        S  644        NaN         NaN   NaN     NaN      NaN    NaN       NaN}
+2023-09-20 22:56:58 [INFO] Executed in: 9.548742294311523s
+2023-09-20 22:57:18 [INFO] Question: GIVE ME A WRITTEN SUMMARY OF  THIS DATASET
+2023-09-20 22:57:18 [INFO] Running PandasAI with openai LLM...
+2023-09-20 22:57:18 [INFO] Prompt ID: 1a037a62-3ed8-486d-8c97-cdacc522680b
+2023-09-20 22:57:32 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    summary = "This dataset contains information about passengers on the Titanic. It has a total of 891 rows and 12 columns. The columns represent the following variables: PassengerId, Survived, Pclass, Name, Sex, Age, SibSp, Parch, Ticket, Fare, Cabin, and Embarked. Each row represents a unique passenger and provides details such as their ID, survival status, class, name, sex, age, number of siblings/spouses aboard, number of parents/children aboard, ticket number, fare, cabin number, and port of embarkation."
+    
+    return {"type": "text", "value": summary}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-20 22:57:32 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    summary = 'This dataset contains information about passengers on the Titanic. It has a total of 891 rows and 12 columns. The columns represent the following variables: PassengerId, Survived, Pclass, Name, Sex, Age, SibSp, Parch, Ticket, Fare, Cabin, and Embarked. Each row represents a unique passenger and provides details such as their ID, survival status, class, name, sex, age, number of siblings/spouses aboard, number of parents/children aboard, ticket number, fare, cabin number, and port of embarkation.'
+    return {'type': 'text', 'value': summary}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 22:57:32 [INFO] Answer: {'type': 'text', 'value': 'This dataset contains information about passengers on the Titanic. It has a total of 891 rows and 12 columns. The columns represent the following variables: PassengerId, Survived, Pclass, Name, Sex, Age, SibSp, Parch, Ticket, Fare, Cabin, and Embarked. Each row represents a unique passenger and provides details such as their ID, survival status, class, name, sex, age, number of siblings/spouses aboard, number of parents/children aboard, ticket number, fare, cabin number, and port of embarkation.'}
+2023-09-20 22:57:32 [INFO] Executed in: 13.956836700439453s
+2023-09-20 22:58:00 [INFO] Question: GIVE ME A WRITTEN INFO OF  THIS DATASET
+2023-09-20 22:58:00 [INFO] Running PandasAI with openai LLM...
+2023-09-20 22:58:00 [INFO] Prompt ID: 801d7a8e-b4e3-4097-b52b-3e16a4e1b305
+2023-09-20 22:58:13 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Prepare: No preprocessing or cleaning needed
+    
+    # Process: No data manipulation needed
+    
+    # Analyze: Get written info about the dataset
+    num_rows = dfs[0].shape[0]
+    num_cols = dfs[0].shape[1]
+    column_names = ", ".join(dfs[0].columns.tolist())
+    
+    info = f"The dataset has {num_rows} rows and {num_cols} columns.\n"
+    info += f"The column names are: {column_names}."
+    
+    # Output: Return the written info
+    return {"type": "text", "value": info}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-20 22:58:13 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    num_rows = dfs[0].shape[0]
+    num_cols = dfs[0].shape[1]
+    column_names = ', '.join(dfs[0].columns.tolist())
+    info = f'The dataset has {num_rows} rows and {num_cols} columns.\n'
+    info += f'The column names are: {column_names}.'
+    return {'type': 'text', 'value': info}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 22:58:13 [INFO] Answer: {'type': 'text', 'value': 'The dataset has 891 rows and 12 columns.\nThe column names are: PassengerId, Survived, Pclass, Name, Sex, Age, SibSp, Parch, Ticket, Fare, Cabin, Embarked.'}
+2023-09-20 22:58:13 [INFO] Executed in: 13.706078052520752s
+2023-09-20 22:58:43 [INFO] Question: GIVE ME A WRITTEN INFO OF  THE MISSING DATA, AND WHICH IS THE MOST VARIABLE WITH MISSING DATA
+2023-09-20 22:58:43 [INFO] Running PandasAI with openai LLM...
+2023-09-20 22:58:43 [INFO] Prompt ID: d5c2e999-e64d-423d-8f7c-2843d5d5e318
+2023-09-20 22:58:58 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Prepare: Preprocessing and cleaning data if necessary
+    missing_data = []
+    for df in dfs:
+        missing_data.append(df.isnull().sum())
+    
+    # Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    missing_data_df = pd.concat(missing_data, axis=1)
+    missing_data_df.columns = range(len(dfs))
+    missing_data_df['Total'] = missing_data_df.sum(axis=1)
+    
+    # Analyze: Conducting the actual analysis
+    most_variable_column = missing_data_df.idxmax(axis=0)['Total']
+    
+    # Output: return a dictionary
+    output = {
+        "type": "text",
+        "value": f"The missing data in the given dataframes are:\n\n{missing_data_df}\n\nThe most variable column with missing data is '{most_variable_column}'."
+    }
+    return output
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-20 22:58:58 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    missing_data = []
+    for df in dfs:
+        missing_data.append(df.isnull().sum())
+    missing_data_df = pd.concat(missing_data, axis=1)
+    missing_data_df.columns = range(len(dfs))
+    missing_data_df['Total'] = missing_data_df.sum(axis=1)
+    most_variable_column = missing_data_df.idxmax(axis=0)['Total']
+    output = {'type': 'text', 'value': f"""The missing data in the given dataframes are:
+
+{missing_data_df}
+
+The most variable column with missing data is '{most_variable_column}'."""}
+    return output
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 22:58:58 [INFO] Answer: {'type': 'text', 'value': "The missing data in the given dataframes are:\n\n               0  Total\nPassengerId    0      0\nSurvived       0      0\nPclass         0      0\nName           0      0\nSex            0      0\nAge          177    177\nSibSp          0      0\nParch          0      0\nTicket         0      0\nFare           0      0\nCabin        687    687\nEmbarked       2      2\n\nThe most variable column with missing data is 'Cabin'."}
+2023-09-20 22:58:58 [INFO] Executed in: 15.637137174606323s
+2023-09-20 23:03:29 [INFO] Question: i just want to see survived colum by sex
+2023-09-20 23:03:29 [INFO] Running PandasAI with openai LLM...
+2023-09-20 23:03:29 [INFO] Prompt ID: 74d45600-daec-4e07-83a7-ac801b9b9a16
+2023-09-20 23:03:39 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    result_df = df.groupby('Sex')['Survived'].sum().reset_index()
+    return {"type": "dataframe", "value": result_df}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-20 23:03:39 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    result_df = df.groupby('Sex')['Survived'].sum().reset_index()
+    return {'type': 'dataframe', 'value': result_df}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 23:03:39 [INFO] Answer: {'type': 'dataframe', 'value':       Sex  Survived
+0  female       233
+1    male       109}
+2023-09-20 23:03:39 [INFO] Executed in: 10.621786117553711s
+2023-09-20 23:07:43 [INFO] Question: dime quien es mas probable que sobreviva y el porcentaje responde en español
+2023-09-20 23:07:43 [INFO] Running PandasAI with openai LLM...
+2023-09-20 23:07:43 [INFO] Prompt ID: 67a60bf8-edd7-4479-ab17-09c1891a632a
+2023-09-20 23:07:58 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    # Group by 'Survived' column and calculate the percentage of survivors
+    survival_percentage = df.groupby('Survived').size() / len(df) * 100
+    
+    # Get the label for the most probable survivor
+    most_probable_survivor = survival_percentage.idxmax()
+    
+    # Translate the label to Spanish
+    if most_probable_survivor == 0:
+        most_probable_survivor_label = "No sobreviviente"
+    else:
+        most_probable_survivor_label = "Sobreviviente"
+    
+    # Format the result as a string
+    result = f"Es más probable que {most_probable_survivor_label} sobreviva con un porcentaje del {survival_percentage[most_probable_survivor]:.2f}%."
+    
+    return {"type": "text", "value": result}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-20 23:07:58 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    survival_percentage = df.groupby('Survived').size() / len(df) * 100
+    most_probable_survivor = survival_percentage.idxmax()
+    if most_probable_survivor == 0:
+        most_probable_survivor_label = 'No sobreviviente'
+    else:
+        most_probable_survivor_label = 'Sobreviviente'
+    result = f'Es más probable que {most_probable_survivor_label} sobreviva con un porcentaje del {survival_percentage[most_probable_survivor]:.2f}%.'
+    return {'type': 'text', 'value': result}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 23:07:58 [INFO] Answer: {'type': 'text', 'value': 'Es más probable que No sobreviviente sobreviva con un porcentaje del 61.62%.'}
+2023-09-20 23:07:58 [INFO] Executed in: 15.100573062896729s
+2023-09-20 23:08:31 [INFO] Question: dime que sexo es mas probable que sobreviva  responde en español
+2023-09-20 23:08:31 [INFO] Running PandasAI with openai LLM...
+2023-09-20 23:08:31 [INFO] Prompt ID: b68c55b2-d145-4ad6-9f94-5e5c09420581
+2023-09-20 23:08:42 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    survived_by_sex = df.groupby('Sex')['Survived'].mean()
+    
+    # Analyze
+    result = survived_by_sex.idxmax()
+    
+    # Output
+    return {"type": "text", "value": result}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-20 23:08:42 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    survived_by_sex = df.groupby('Sex')['Survived'].mean()
+    result = survived_by_sex.idxmax()
+    return {'type': 'text', 'value': result}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 23:08:42 [INFO] Answer: {'type': 'text', 'value': 'female'}
+2023-09-20 23:08:42 [INFO] Executed in: 11.282351016998291s
+2023-09-20 23:08:54 [INFO] Question: dime que sexo es mas probable que sobreviva y su porcentaje responde en español
+2023-09-20 23:08:54 [INFO] Running PandasAI with openai LLM...
+2023-09-20 23:08:54 [INFO] Prompt ID: df615ac0-099e-4c99-ac72-c3a4447eb77a
+2023-09-20 23:09:11 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    
+    # Group by sex and calculate the survival rate
+    survival_rate = df.groupby('Sex')['Survived'].mean()
+    
+    # Find the sex with the highest survival rate
+    max_survival_rate = survival_rate.idxmax()
+    
+    # Convert the result to Spanish
+    if max_survival_rate == 'female':
+        max_survival_rate = 'mujer'
+    else:
+        max_survival_rate = 'hombre'
+    
+    # Calculate the percentage survival rate
+    percentage_survival_rate = survival_rate[max_survival_rate] * 100
+    
+    # Format the result in Spanish
+    result = f"Es más probable que sobreviva una persona de sexo {max_survival_rate} con un porcentaje de {percentage_survival_rate:.2f}%."
+    
+    return {"type": "text", "value": result}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-20 23:09:11 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    survival_rate = df.groupby('Sex')['Survived'].mean()
+    max_survival_rate = survival_rate.idxmax()
+    if max_survival_rate == 'female':
+        max_survival_rate = 'mujer'
+    else:
+        max_survival_rate = 'hombre'
+    percentage_survival_rate = survival_rate[max_survival_rate] * 100
+    result = f'Es más probable que sobreviva una persona de sexo {max_survival_rate} con un porcentaje de {percentage_survival_rate:.2f}%.'
+    return {'type': 'text', 'value': result}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 23:09:11 [WARNING] Error of executing code
+2023-09-20 23:09:11 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-09-20 23:09:11 [INFO] Failed with error: 'mujer'. Retrying
+2023-09-20 23:09:28 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    survival_rate = df.groupby('Sex')['Survived'].mean()
+    max_survival_rate = survival_rate.idxmax()
+    if max_survival_rate == 'female':
+        max_survival_rate = 'mujer'
+    else:
+        max_survival_rate = 'hombre'
+    percentage_survival_rate = survival_rate[max_survival_rate] * 100
+    result = f'Es más probable que sobreviva una persona de sexo {max_survival_rate} con un porcentaje de {percentage_survival_rate:.2f}%.'
+    return {'type': 'text', 'value': result}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 23:09:28 [WARNING] Error of executing code
+2023-09-20 23:09:28 [WARNING] Failed to execute code with a correction framework [retry number: 2]
+2023-09-20 23:09:28 [INFO] Failed with error: 'mujer'. Retrying
+2023-09-20 23:09:43 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    survival_rate = df.groupby('Sex')['Survived'].mean()
+    max_survival_rate = survival_rate.idxmax()
+    if max_survival_rate == 'female':
+        max_survival_rate = 'mujer'
+    else:
+        max_survival_rate = 'hombre'
+    percentage_survival_rate = survival_rate[max_survival_rate] * 100
+    result = f'Es más probable que sobreviva una persona de sexo {max_survival_rate} con un porcentaje de {percentage_survival_rate:.2f}%.'
+    return {'type': 'text', 'value': result}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 23:09:43 [WARNING] Error of executing code
+2023-09-20 23:12:06 [INFO] Question: responde en español, que sexo es mas probable que sobreviva y en que porcentaje?
+2023-09-20 23:12:06 [INFO] Running PandasAI with openai LLM...
+2023-09-20 23:12:06 [INFO] Prompt ID: 00d349cd-e087-48bd-83fa-b49999e994bb
+2023-09-20 23:12:21 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    
+    # Group by sex and calculate the survival rate
+    survival_rate = df.groupby('Sex')['Survived'].mean()
+    
+    # Find the sex with the highest survival rate
+    most_probable_sex = survival_rate.idxmax()
+    
+    # Calculate the percentage of survival for the most probable sex
+    percentage = survival_rate.max() * 100
+    
+    # Return the result as a text
+    result = {
+        "type": "text",
+        "value": f"El sexo más probable de sobrevivir es {most_probable_sex} con un porcentaje de {percentage:.2f}%."
+    }
+    
+    return result
+
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-20 23:12:21 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    survival_rate = df.groupby('Sex')['Survived'].mean()
+    most_probable_sex = survival_rate.idxmax()
+    percentage = survival_rate.max() * 100
+    result = {'type': 'text', 'value': f'El sexo más probable de sobrevivir es {most_probable_sex} con un porcentaje de {percentage:.2f}%.'}
+    return result
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 23:12:21 [INFO] Answer: {'type': 'text', 'value': 'El sexo más probable de sobrevivir es female con un porcentaje de 74.20%.'}
+2023-09-20 23:12:21 [INFO] Executed in: 14.83310580253601s
+2023-09-20 23:12:49 [INFO] Question: responde en español, que columna es la que tiene mas datos missing?
+2023-09-20 23:12:49 [INFO] Running PandasAI with openai LLM...
+2023-09-20 23:12:49 [INFO] Prompt ID: 08f90ded-f2ba-4c52-bf68-42705b3a4afe
+2023-09-20 23:13:01 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    missing_data = {}
+    for df in dfs:
+        missing_data[df.name] = df.isnull().sum().max()
+    
+    column_with_most_missing_data = max(missing_data, key=missing_data.get)
+    
+    return {"type": "text", "value": f"La columna con más datos faltantes es {column_with_most_missing_data}."}
+
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-20 23:13:01 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    missing_data = {}
+    for df in dfs:
+        missing_data[df.name] = df.isnull().sum().max()
+    column_with_most_missing_data = max(missing_data, key=missing_data.get)
+    return {'type': 'text', 'value': f'La columna con más datos faltantes es {column_with_most_missing_data}.'}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 23:13:01 [WARNING] Error of executing code
+2023-09-20 23:13:01 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-09-20 23:13:01 [INFO] Failed with error: 'DataFrame' object has no attribute 'name'. Retrying
+2023-09-20 23:13:13 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    missing_data = {}
+    for df in dfs:
+        missing_data[df.columns[0]] = df.isnull().sum().max()
+    column_with_most_missing_data = max(missing_data, key=missing_data.get)
+    return {'type': 'text', 'value': f'La columna con más datos faltantes es {column_with_most_missing_data}.'}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 23:13:13 [INFO] Answer: {'type': 'text', 'value': 'La columna con más datos faltantes es PassengerId.'}
+2023-09-20 23:13:13 [INFO] Executed in: 23.630985021591187s
+2023-09-20 23:14:01 [INFO] Question: responde en español,  filtrame la columna de survived por sexo
+2023-09-20 23:14:01 [INFO] Running PandasAI with openai LLM...
+2023-09-20 23:14:01 [INFO] Prompt ID: 2566d272-5b32-4ab6-9b72-a04f3ea44145
+2023-09-20 23:14:12 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Filter the 'Survived' column by 'Sex'
+    filtered_data = dfs[0][['Survived', 'Sex']]
+    
+    # Return the filtered data as a dataframe
+    return {"type": "dataframe", "value": filtered_data}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-20 23:14:12 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    filtered_data = dfs[0][['Survived', 'Sex']]
+    return {'type': 'dataframe', 'value': filtered_data}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 23:14:12 [INFO] Answer: {'type': 'dataframe', 'value':      Survived     Sex
+0           0    male
+1           1  female
+2           1  female
+3           1  female
+4           0    male
+..        ...     ...
+886         0    male
+887         1  female
+888         0  female
+889         1    male
+890         0    male
+
+[891 rows x 2 columns]}
+2023-09-20 23:14:12 [INFO] Executed in: 10.280402898788452s
+2023-09-20 23:18:53 [INFO] Question: responde en español, de la columna sex, quien es mas probable que sobreviva y en que porcentaje?
+
+2023-09-20 23:18:53 [INFO] Running PandasAI with openai LLM...
+2023-09-20 23:18:53 [INFO] Prompt ID: 014203f8-0cb7-47c2-a963-58828a201abd
+2023-09-20 23:19:07 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    # Group by 'Sex' and calculate the survival rate
+    survival_rate = df.groupby('Sex')['Survived'].mean() * 100
+    
+    # Find the gender with the highest survival rate
+    max_survival_rate = survival_rate.idxmax()
+    
+    # Format the result as a string
+    result = f"Es más probable que sobreviva una persona de sexo {max_survival_rate} con un porcentaje de {survival_rate[max_survival_rate]:.2f}%."
+    
+    return {"type": "text", "value": result}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-20 23:19:07 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    survival_rate = df.groupby('Sex')['Survived'].mean() * 100
+    max_survival_rate = survival_rate.idxmax()
+    result = f'Es más probable que sobreviva una persona de sexo {max_survival_rate} con un porcentaje de {survival_rate[max_survival_rate]:.2f}%.'
+    return {'type': 'text', 'value': result}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 23:19:07 [INFO] Answer: {'type': 'text', 'value': 'Es más probable que sobreviva una persona de sexo female con un porcentaje de 74.20%.'}
+2023-09-20 23:19:07 [INFO] Executed in: 13.923465013504028s
+2023-09-20 23:20:06 [INFO] Question: responde en español, calcula la media de la columna age
+2023-09-20 23:20:06 [INFO] Running PandasAI with openai LLM...
+2023-09-20 23:20:06 [INFO] Prompt ID: 9113ced6-2d49-4e00-8cc9-3a7b01c7c0b8
+2023-09-20 23:20:16 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Calculate the mean of the 'Age' column
+    mean_age = dfs[0]['Age'].mean()
+    
+    # Return the result as a dictionary
+    return {"type": "number", "value": mean_age}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-20 23:20:16 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    mean_age = dfs[0]['Age'].mean()
+    return {'type': 'number', 'value': mean_age}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 23:20:16 [INFO] Answer: {'type': 'number', 'value': 29.69911764705882}
+2023-09-20 23:20:16 [INFO] Executed in: 10.262519836425781s
+2023-09-20 23:20:23 [INFO] Question: responde en español, calcula la media de la edad
+2023-09-20 23:20:23 [INFO] Running PandasAI with openai LLM...
+2023-09-20 23:20:23 [INFO] Prompt ID: 6c6013ef-844b-40cb-8100-85d0f27eadc2
+2023-09-20 23:20:33 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    mean_age = df['Age'].mean()
+    return {"type": "number", "value": mean_age}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-20 23:20:33 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    mean_age = df['Age'].mean()
+    return {'type': 'number', 'value': mean_age}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 23:20:33 [INFO] Answer: {'type': 'number', 'value': 29.69911764705882}
+2023-09-20 23:20:33 [INFO] Executed in: 9.923696994781494s
+2023-09-20 23:20:48 [INFO] Question: responde en español, calcula la media de la edad por el sexo (columna sex)
+2023-09-20 23:20:48 [INFO] Running PandasAI with openai LLM...
+2023-09-20 23:20:48 [INFO] Prompt ID: 9b0004dd-61d1-47b3-9171-78a3888540a3
+2023-09-20 23:20:57 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    result = df.groupby('Sex')['Age'].mean().reset_index()
+    result_dict = {"type": "dataframe", "value": result}
+    return result_dict
+    
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-20 23:20:57 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    result = df.groupby('Sex')['Age'].mean().reset_index()
+    result_dict = {'type': 'dataframe', 'value': result}
+    return result_dict
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 23:20:57 [INFO] Answer: {'type': 'dataframe', 'value':       Sex        Age
+0  female  27.915709
+1    male  30.726645}
+2023-09-20 23:20:57 [INFO] Executed in: 9.299170017242432s
+2023-09-20 23:21:17 [INFO] Question: responde en español, calcula la media de la edad por el sexo 
+2023-09-20 23:21:17 [INFO] Running PandasAI with openai LLM...
+2023-09-20 23:21:17 [INFO] Prompt ID: cd652de6-0c45-487a-a797-b65b791f7a9f
+2023-09-20 23:21:29 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    df = dfs[0]
+    result = df.groupby('Sex')['Age'].mean().reset_index()
+    result_dict = {"type": "dataframe", "value": result}
+    return result_dict
+    
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-20 23:21:29 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    result = df.groupby('Sex')['Age'].mean().reset_index()
+    result_dict = {'type': 'dataframe', 'value': result}
+    return result_dict
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 23:21:29 [INFO] Answer: {'type': 'dataframe', 'value':       Sex        Age
+0  female  27.915709
+1    male  30.726645}
+2023-09-20 23:21:29 [INFO] Executed in: 11.329533338546753s
+2023-09-20 23:22:09 [INFO] Question: responde en español, a que hace referencia las columnas embarked y cabin?
+2023-09-20 23:22:09 [INFO] Running PandasAI with openai LLM...
+2023-09-20 23:22:09 [INFO] Prompt ID: 62de61bc-090a-4877-a6b1-dbdd543f501b
+2023-09-20 23:22:25 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    result = {}
+    
+    # Get the metadata of the first dataframe
+    metadata = dfs[0].columns.tolist()
+    
+    # Find the index of the columns "Embarked" and "Cabin"
+    embarked_index = metadata.index("Embarked")
+    cabin_index = metadata.index("Cabin")
+    
+    # Get the description of the columns "Embarked" and "Cabin"
+    embarked_description = dfs[0].iloc[:, embarked_index].describe().to_string()
+    cabin_description = dfs[0].iloc[:, cabin_index].describe().to_string()
+    
+    # Store the descriptions in the result dictionary
+    result["Embarked"] = embarked_description
+    result["Cabin"] = cabin_description
+    
+    return result
+
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-20 23:22:25 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    result = {}
+    metadata = dfs[0].columns.tolist()
+    embarked_index = metadata.index('Embarked')
+    cabin_index = metadata.index('Cabin')
+    result['Embarked'] = embarked_description
+    result['Cabin'] = cabin_description
+    return result
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 23:22:25 [WARNING] Error of executing code
+2023-09-20 23:22:25 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-09-20 23:22:25 [INFO] Failed with error: name 'embarked_description' is not defined. Retrying
+2023-09-20 23:22:39 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    result = {}
+    metadata = dfs[0].columns.tolist()
+    embarked_index = metadata.index('Embarked')
+    cabin_index = metadata.index('Cabin')
+    result['Embarked'] = embarked_description
+    result['Cabin'] = cabin_description
+    return result
+
+
+result = analyze_data(df)
+        ```
+2023-09-20 23:22:39 [WARNING] Error of executing code
+2023-09-20 23:22:39 [WARNING] Failed to execute code with a correction framework [retry number: 2]
+2023-09-20 23:22:39 [INFO] Failed with error: name 'embarked_description' is not defined. Retrying
+2023-09-20 23:22:53 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    result = {}
+    metadata = dfs[0].columns.tolist()
+    embarked_index = metadata.index('Embarked')
+    cabin_index = metadata.index('Cabin')
+    result['Embarked'] = embarked_description
+    result['Cabin'] = cabin_description
+    return result
+
+
+result = analyze_data(df)
+        ```
+2023-09-20 23:22:53 [WARNING] Error of executing code
+2023-09-20 23:23:30 [INFO] Question: responde en español, informacion sobre la columna embarked
+2023-09-20 23:23:30 [INFO] Running PandasAI with openai LLM...
+2023-09-20 23:23:30 [INFO] Prompt ID: 887805f0-c5e6-416e-845d-dde8a8266334
+2023-09-20 23:23:40 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Get the column information for "Embarked"
+    embarked_info = dfs[0]["Embarked"].describe()
+    
+    # Return the column information as a dataframe
+    return {"type": "dataframe", "value": embarked_info}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-20 23:23:40 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    embarked_info = dfs[0]['Embarked'].describe()
+    return {'type': 'dataframe', 'value': embarked_info}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 23:23:40 [INFO] Answer: {'type': 'dataframe', 'value': count     889
+unique      3
+top         S
+freq      644
+Name: Embarked, dtype: object}
+2023-09-20 23:23:40 [INFO] Executed in: 10.638754844665527s
+2023-09-20 23:24:08 [INFO] Question: responde en español, que significa la columna embarked?
+2023-09-20 23:24:08 [INFO] Running PandasAI with openai LLM...
+2023-09-20 23:24:08 [INFO] Prompt ID: efdcbe93-998c-41b7-8f5d-3e5a8cc692fb
+2023-09-20 23:24:27 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    column_meanings = {
+        "PassengerId": "Identificador del pasajero",
+        "Survived": "Indica si el pasajero sobrevivió (1) o no (0)",
+        "Pclass": "Clase del pasajero (1 = Primera clase, 2 = Segunda clase, 3 = Tercera clase)",
+        "Name": "Nombre del pasajero",
+        "Sex": "Género del pasajero",
+        "Age": "Edad del pasajero",
+        "SibSp": "Número de hermanos/cónyuges a bordo",
+        "Parch": "Número de padres/hijos a bordo",
+        "Ticket": "Número del ticket",
+        "Fare": "Tarifa del pasajero",
+        "Cabin": "Número de cabina",
+        "Embarked": "Puerto de embarque (C = Cherbourg, Q = Queenstown, S = Southampton)"
+    }
+    
+    return {"type": "text", "value": column_meanings["Embarked"]}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-20 23:24:27 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    column_meanings = {'PassengerId': 'Identificador del pasajero', 'Survived': 'Indica si el pasajero sobrevivió (1) o no (0)', 'Pclass': 'Clase del pasajero (1 = Primera clase, 2 = Segunda clase, 3 = Tercera clase)', 'Name': 'Nombre del pasajero', 'Sex': 'Género del pasajero', 'Age': 'Edad del pasajero', 'SibSp': 'Número de hermanos/cónyuges a bordo', 'Parch': 'Número de padres/hijos a bordo', 'Ticket': 'Número del ticket', 'Fare': 'Tarifa del pasajero', 'Cabin': 'Número de cabina', 'Embarked': 'Puerto de embarque (C = Cherbourg, Q = Queenstown, S = Southampton)'}
+    return {'type': 'text', 'value': column_meanings['Embarked']}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 23:24:27 [INFO] Answer: {'type': 'text', 'value': 'Puerto de embarque (C = Cherbourg, Q = Queenstown, S = Southampton)'}
+2023-09-20 23:24:27 [INFO] Executed in: 18.584498167037964s
+2023-09-20 23:24:47 [INFO] Question: responde en español, que significa la columna sibsp?
+2023-09-20 23:24:47 [INFO] Running PandasAI with openai LLM...
+2023-09-20 23:24:47 [INFO] Prompt ID: 19c911b5-e1c3-420f-a07d-923391b68929
+2023-09-20 23:25:06 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    column_meanings = {
+        "PassengerId": "Identificador del pasajero",
+        "Survived": "Indicador de si el pasajero sobrevivió (0 = No, 1 = Sí)",
+        "Pclass": "Clase del pasajero (1 = Primera clase, 2 = Segunda clase, 3 = Tercera clase)",
+        "Name": "Nombre del pasajero",
+        "Sex": "Género del pasajero",
+        "Age": "Edad del pasajero",
+        "SibSp": "Número de hermanos/cónyuges a bordo del Titanic",
+        "Parch": "Número de padres/hijos a bordo del Titanic",
+        "Ticket": "Número de ticket",
+        "Fare": "Tarifa del pasajero",
+        "Cabin": "Número de cabina",
+        "Embarked": "Puerto de embarque (C = Cherbourg, Q = Queenstown, S = Southampton)"
+    }
+    
+    column_name = "SibSp"
+    column_meaning = column_meanings.get(column_name, "No se encontró el significado de la columna")
+    
+    return {"type": "text", "value": f"La columna '{column_name}' significa '{column_meaning}'."}
+
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-20 23:25:06 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    column_meanings = {'PassengerId': 'Identificador del pasajero', 'Survived': 'Indicador de si el pasajero sobrevivió (0 = No, 1 = Sí)', 'Pclass': 'Clase del pasajero (1 = Primera clase, 2 = Segunda clase, 3 = Tercera clase)', 'Name': 'Nombre del pasajero', 'Sex': 'Género del pasajero', 'Age': 'Edad del pasajero', 'SibSp': 'Número de hermanos/cónyuges a bordo del Titanic', 'Parch': 'Número de padres/hijos a bordo del Titanic', 'Ticket': 'Número de ticket', 'Fare': 'Tarifa del pasajero', 'Cabin': 'Número de cabina', 'Embarked': 'Puerto de embarque (C = Cherbourg, Q = Queenstown, S = Southampton)'}
+    column_name = 'SibSp'
+    column_meaning = column_meanings.get(column_name, 'No se encontró el significado de la columna')
+    return {'type': 'text', 'value': f"La columna '{column_name}' significa '{column_meaning}'."}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-20 23:25:06 [INFO] Answer: {'type': 'text', 'value': "La columna 'SibSp' significa 'Número de hermanos/cónyuges a bordo del Titanic'."}
+2023-09-20 23:25:06 [INFO] Executed in: 18.666117906570435s
+2023-09-21 00:38:57 [INFO] Question: responde en español, que significa la columna sibsp?
+2023-09-21 00:38:57 [INFO] Running PandasAI with openai LLM...
+2023-09-21 00:38:57 [INFO] Prompt ID: 0b723d6c-3627-488c-8ae1-4db758c850c3
+2023-09-21 00:38:57 [INFO] Using cached response
+2023-09-21 00:38:57 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    column_meanings = {
+        "PassengerId": "Identificador del pasajero",
+        "Survived": "Indicador de si el pasajero sobrevivió (0 = No, 1 = Sí)",
+        "Pclass": "Clase del pasajero (1 = Primera clase, 2 = Segunda clase, 3 = Tercera clase)",
+        "Name": "Nombre del pasajero",
+        "Sex": "Género del pasajero",
+        "Age": "Edad del pasajero",
+        "SibSp": "Número de hermanos/cónyuges a bordo del Titanic",
+        "Parch": "Número de padres/hijos a bordo del Titanic",
+        "Ticket": "Número de ticket",
+        "Fare": "Tarifa del pasajero",
+        "Cabin": "Número de cabina",
+        "Embarked": "Puerto de embarque (C = Cherbourg, Q = Queenstown, S = Southampton)"
+    }
+    
+    column_name = "SibSp"
+    column_meaning = column_meanings.get(column_name, "No se encontró el significado de la columna")
+    
+    return {"type": "text", "value": f"La columna '{column_name}' significa '{column_meaning}'."}
+
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-21 00:38:57 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    column_meanings = {'PassengerId': 'Identificador del pasajero', 'Survived': 'Indicador de si el pasajero sobrevivió (0 = No, 1 = Sí)', 'Pclass': 'Clase del pasajero (1 = Primera clase, 2 = Segunda clase, 3 = Tercera clase)', 'Name': 'Nombre del pasajero', 'Sex': 'Género del pasajero', 'Age': 'Edad del pasajero', 'SibSp': 'Número de hermanos/cónyuges a bordo del Titanic', 'Parch': 'Número de padres/hijos a bordo del Titanic', 'Ticket': 'Número de ticket', 'Fare': 'Tarifa del pasajero', 'Cabin': 'Número de cabina', 'Embarked': 'Puerto de embarque (C = Cherbourg, Q = Queenstown, S = Southampton)'}
+    column_name = 'SibSp'
+    column_meaning = column_meanings.get(column_name, 'No se encontró el significado de la columna')
+    return {'type': 'text', 'value': f"La columna '{column_name}' significa '{column_meaning}'."}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-21 00:38:57 [INFO] Answer: {'type': 'text', 'value': "La columna 'SibSp' significa 'Número de hermanos/cónyuges a bordo del Titanic'."}
+2023-09-21 00:38:57 [INFO] Executed in: 0.0031969547271728516s
+2023-09-21 00:39:23 [INFO] Question: responde en español, que significa la columna embarked?
+2023-09-21 00:39:23 [INFO] Running PandasAI with openai LLM...
+2023-09-21 00:39:23 [INFO] Prompt ID: d098efde-544f-4196-bf74-8a78426f9b25
+2023-09-21 00:39:23 [INFO] Using cached response
+2023-09-21 00:39:23 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    column_meanings = {
+        "PassengerId": "Identificador del pasajero",
+        "Survived": "Indica si el pasajero sobrevivió (1) o no (0)",
+        "Pclass": "Clase del pasajero (1 = Primera clase, 2 = Segunda clase, 3 = Tercera clase)",
+        "Name": "Nombre del pasajero",
+        "Sex": "Género del pasajero",
+        "Age": "Edad del pasajero",
+        "SibSp": "Número de hermanos/cónyuges a bordo",
+        "Parch": "Número de padres/hijos a bordo",
+        "Ticket": "Número del ticket",
+        "Fare": "Tarifa del pasajero",
+        "Cabin": "Número de cabina",
+        "Embarked": "Puerto de embarque (C = Cherbourg, Q = Queenstown, S = Southampton)"
+    }
+    
+    return {"type": "text", "value": column_meanings["Embarked"]}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-21 00:39:23 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    column_meanings = {'PassengerId': 'Identificador del pasajero', 'Survived': 'Indica si el pasajero sobrevivió (1) o no (0)', 'Pclass': 'Clase del pasajero (1 = Primera clase, 2 = Segunda clase, 3 = Tercera clase)', 'Name': 'Nombre del pasajero', 'Sex': 'Género del pasajero', 'Age': 'Edad del pasajero', 'SibSp': 'Número de hermanos/cónyuges a bordo', 'Parch': 'Número de padres/hijos a bordo', 'Ticket': 'Número del ticket', 'Fare': 'Tarifa del pasajero', 'Cabin': 'Número de cabina', 'Embarked': 'Puerto de embarque (C = Cherbourg, Q = Queenstown, S = Southampton)'}
+    return {'type': 'text', 'value': column_meanings['Embarked']}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-21 00:39:23 [INFO] Answer: {'type': 'text', 'value': 'Puerto de embarque (C = Cherbourg, Q = Queenstown, S = Southampton)'}
+2023-09-21 00:39:23 [INFO] Executed in: 0.002527952194213867s
+2023-09-21 00:39:43 [INFO] Question: responde en español, que significa la columna pclcass?
+2023-09-21 00:39:43 [INFO] Running PandasAI with openai LLM...
+2023-09-21 00:39:43 [INFO] Prompt ID: 3b56faac-d514-457d-9a18-ad0598198e79
+2023-09-21 00:40:00 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    column_meanings = {
+        "PassengerId": "Identificador del pasajero",
+        "Survived": "Indicador de si el pasajero sobrevivió (0 = No, 1 = Sí)",
+        "Pclass": "Clase del pasajero (1 = Primera clase, 2 = Segunda clase, 3 = Tercera clase)",
+        "Name": "Nombre del pasajero",
+        "Sex": "Género del pasajero",
+        "Age": "Edad del pasajero",
+        "SibSp": "Número de hermanos/cónyuges a bordo",
+        "Parch": "Número de padres/hijos a bordo",
+        "Ticket": "Número de ticket",
+        "Fare": "Tarifa del pasajero",
+        "Cabin": "Número de cabina",
+        "Embarked": "Puerto de embarque (C = Cherbourg, Q = Queenstown, S = Southampton)"
+    }
+    
+    return {"type": "text", "value": column_meanings["Pclass"]}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-21 00:40:00 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    column_meanings = {'PassengerId': 'Identificador del pasajero', 'Survived': 'Indicador de si el pasajero sobrevivió (0 = No, 1 = Sí)', 'Pclass': 'Clase del pasajero (1 = Primera clase, 2 = Segunda clase, 3 = Tercera clase)', 'Name': 'Nombre del pasajero', 'Sex': 'Género del pasajero', 'Age': 'Edad del pasajero', 'SibSp': 'Número de hermanos/cónyuges a bordo', 'Parch': 'Número de padres/hijos a bordo', 'Ticket': 'Número de ticket', 'Fare': 'Tarifa del pasajero', 'Cabin': 'Número de cabina', 'Embarked': 'Puerto de embarque (C = Cherbourg, Q = Queenstown, S = Southampton)'}
+    return {'type': 'text', 'value': column_meanings['Pclass']}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-21 00:40:00 [INFO] Answer: {'type': 'text', 'value': 'Clase del pasajero (1 = Primera clase, 2 = Segunda clase, 3 = Tercera clase)'}
+2023-09-21 00:40:00 [INFO] Executed in: 17.88038206100464s
+2023-09-21 05:04:24 [INFO] Question: responde en español, QUE SIGNIFICA LA VARIABLE PCCLASS
+2023-09-21 05:04:24 [INFO] Running PandasAI with openai LLM...
+2023-09-21 05:04:24 [INFO] Prompt ID: 278c1734-f16c-44a5-823f-dfab7012b89b
+2023-09-21 05:04:37 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    pclass_meaning = {
+        1: "Primera clase",
+        2: "Segunda clase",
+        3: "Tercera clase"
+    }
+    
+    # Analyze
+    pclass = df['Pclass'].unique()
+    pclass_description = [pclass_meaning.get(p) for p in pclass]
+    
+    # Output
+    return {"type": "text", "value": f"La variable Pclass representa la clase del pasajero en el Titanic. Los valores posibles son: {', '.join(pclass_description)}."}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-21 05:04:37 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    pclass_meaning = {(1): 'Primera clase', (2): 'Segunda clase', (3): 'Tercera clase'}
+    pclass = df['Pclass'].unique()
+    pclass_description = [pclass_meaning.get(p) for p in pclass]
+    return {'type': 'text', 'value': f"La variable Pclass representa la clase del pasajero en el Titanic. Los valores posibles son: {', '.join(pclass_description)}."}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-21 05:04:37 [INFO] Answer: {'type': 'text', 'value': 'La variable Pclass representa la clase del pasajero en el Titanic. Los valores posibles son: Tercera clase, Primera clase, Segunda clase.'}
+2023-09-21 05:04:37 [INFO] Executed in: 12.978041172027588s
+2023-09-21 05:04:50 [INFO] Question: responde en español, HAZME LA MEDIA DE LA COLUMNA AGE
+2023-09-21 05:04:50 [INFO] Running PandasAI with openai LLM...
+2023-09-21 05:04:50 [INFO] Prompt ID: 10d3b726-c23e-4860-a3e9-f130f7e890e3
+2023-09-21 05:05:00 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Calculate the average of the 'Age' column
+    average_age = dfs[0]['Age'].mean()
+    
+    # Return the result as a dictionary
+    return {"type": "number", "value": average_age}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-21 05:05:00 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    average_age = dfs[0]['Age'].mean()
+    return {'type': 'number', 'value': average_age}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-21 05:05:00 [INFO] Answer: {'type': 'number', 'value': 29.69911764705882}
+2023-09-21 05:05:00 [INFO] Executed in: 9.58067512512207s
+2023-09-21 05:05:27 [INFO] Question: responde en español, QUE SIGNIFICA LA VARIABLE EMBARKED
+2023-09-21 05:05:27 [INFO] Running PandasAI with openai LLM...
+2023-09-21 05:05:27 [INFO] Prompt ID: ec0208cf-d17f-4641-8ff5-65d3283860b7
+2023-09-21 05:05:39 [INFO] 
+                    Code generated:
+                    ```
+                    # TODO import all the dependencies required
+import pandas as pd
+
+# Analyze the data
+# 1. Prepare: Preprocessing and cleaning data if necessary
+# 2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+# 3. Analyze: Conducting the actual analysis (if the user asks to create a chart save it to an image in exports/charts/temp_chart.png and do not show the chart.)
+# 4. Output: return a dictionary of:
+# - type (possible values "text", "number", "dataframe", "plot")
+# - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+# Example output: { "type": "text", "value": "The average loan amount is $15,000." }
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    # Code goes here (do not add comments)
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    embarked_values = df['Embarked'].unique()
+    
+    # Analyze
+    embarked_meaning = "La variable 'Embarked' indica el puerto de embarque del pasajero en el Titanic."
+    
+    # Output
+    return {"type": "text", "value": embarked_meaning}
+
+# Declare a result variable
+result = analyze_data(dfs)
+                    ```
+                
+2023-09-21 05:05:39 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    df = dfs[0]
+    embarked_values = df['Embarked'].unique()
+    embarked_meaning = "La variable 'Embarked' indica el puerto de embarque del pasajero en el Titanic."
+    return {'type': 'text', 'value': embarked_meaning}
+
+
+result = analyze_data(dfs)
+        ```
+2023-09-21 05:05:39 [INFO] Answer: {'type': 'text', 'value': "La variable 'Embarked' indica el puerto de embarque del pasajero en el Titanic."}
+2023-09-21 05:05:39 [INFO] Executed in: 11.44716477394104s
